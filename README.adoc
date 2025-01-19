@@ -6,3 +6,5 @@
 :toc!:
 
 == Overview
+
+This document describes the governance method for integration projects.
