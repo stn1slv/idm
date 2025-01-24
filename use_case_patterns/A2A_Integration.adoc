@@ -1,0 +1,15 @@
+= A2A Integration
+
+The application to application (A2A) integration use-case pattern allows you to implement a message-
+based exchange of transactional data along internal company processes by connecting involved business
+applications. Transactional data is about ongoing business activities such as physical goods movement or sales
+order documents. This transactional data is typically exchanged in a (near-) real-time fashion across involved
+business applications using an integration technology.
+
+<IMAGE>
+
+Examples of A2A integration use-case patterns in an SAP context, which are predefined by SAP:
+
+* Exchange sales orders between SAP Customer Experience solutions and SAP S/4HANA as part of the Lead to Cash process for cloud deployment. For more information.
+* Transfer purchase requisitions for materials that have no source of supply between SAP Ariba Sourcing and SAP S/4HANA as part of the Source to Pay process for hybrid deployment.
+* Replicate service entry sheets or timesheets from SAP Fieldglass Vendor Management System to SAP S/4HANA as part of the External Workforce process for hybrid deployment.
