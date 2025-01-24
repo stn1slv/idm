@@ -1,2 +1,9 @@
 = Identity Governance Integration
 
+Identity Governance Integration ensures secure and efficient identity lifecycle management by integrating different business applications within the enterprise landscape. This use case focuses on addressing critical identity provisioning and governance aspects, such as:
+
+* Managing passwords
+* Managing permissions
+* Automating workflows
+* Recertifying user access periodically
+* Ensuring compliance
