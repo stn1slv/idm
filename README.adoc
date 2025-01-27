@@ -1,4 +1,4 @@
-= Integration Governance Method
+= Integration Development Method
 :sectnums:
 :toc: left
 :toclevels: 3
@@ -7,5 +7,4 @@
 
 == Overview
 
-This document describes the governance method for integration projects.
-
+This project describes the approach to develop and govern the integration initiatives in the enterprises.
