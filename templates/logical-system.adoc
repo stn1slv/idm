@@ -1,0 +1,39 @@
+= Logical System Template
+
+[cols=".^1,2"]
+|===
+| ID |
+| Status | 
+| Owner | 
+| System Domain |
+| Purpose |
+| Integration Style |
+| Integration Technology |
+|===
+
+== Technical Details
+
+[cols=".^1,2"]
+|===
+| Integration capabilities |
+| Authentication & Authorization | 
+| Performance | 
+|===
+
+== Environments Details
+
+[cols=".^1,^.^2,^.^2,.^1", options="header"]
+|===
+| Environment | System Endpoint | Link to the password manager | Comments 
+
+| Development |  |  | 
+| Quality |  |  | 
+| UAT / Pre-Prod |  |  | 
+| Production |  |  | 
+|===
+
+== List Of The Interfaces
+
+== Documentation
+
+== Additional Information
