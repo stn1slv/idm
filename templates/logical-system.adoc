@@ -1,6 +1,6 @@
 = Logical System Template
 
-[cols=".^1,2"]
+[cols=".^1h,2"]
 |===
 | ID |
 | Status | 
@@ -13,7 +13,7 @@
 
 == Technical Details
 
-[cols=".^1,2"]
+[cols=".^1h,2"]
 |===
 | Integration capabilities |
 | Authentication & Authorization | 
@@ -22,7 +22,7 @@
 
 == Environments Details
 
-[cols=".^1,^.^2,^.^2,.^1", options="header"]
+[cols=".^1h,^.^2,^.^2,.^1", options="header"]
 |===
 | Environment | System Endpoint | Link to the password manager | Comments 
 
