@@ -2,14 +2,14 @@
 :toc: right
 :toclevels: 2
 
-== Ontology
+== Repository Ontology
 
 == Naming Convention
 
 === Integration Interface
 
 The integration interface could be named by the following pattern:
-[NOTE]
+[sidebar]
 ====
 I.{Seq. number} - {Data Object Name} from {Sender System} to {Receiver System}
 ====
@@ -21,7 +21,7 @@ For example:
 === Logical System
 
 The logical system could be named by the following pattern:
-[NOTE]
+[sidebar]
 ====
 S.{Seq. number} - {System Name}
 ====
@@ -32,7 +32,7 @@ For example:
 === Data Object
 
 The data object could be named by the following pattern:
-[NOTE]
+[sidebar]
 ====
 D.{Seq. number} - {Data Object Name}
 ====
