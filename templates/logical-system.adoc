@@ -1,5 +1,5 @@
 = Logical System Template
-:toc: auto
+:toc: right
 :toclevels: 2
 
 [cols=".^1h,2"]
@@ -20,13 +20,13 @@
 |===
 |  | Input | Description 
 
-|Integration capabilities | | Fill in protocols and formats for the system, for example:
+|Integration capabilities | | _Fill in protocols and formats for the system, for example:
 
 SOAP over HTTP/s, REST (JSON over HTTPs), REST (XML over HTTPs), File-based (SFTP, S3, etc.), DB access (JDBC, ODBC, etc.), Messaging (Kafka, AMQP, JMS, etc.), etc.
 
-If the system is participated in the integration as data provider and data receiver then provide the protocols and formats for both cases
-|Authentication | | Authentication schema, encryption, etc.
-|Performance | | Rate Limiting, microbatching, etc.
+If the system is participated in the integration as data provider and data receiver then provide the protocols and formats for both cases_
+|Authentication | | _Authentication schema, encryption, etc._
+|Performance | | _Rate Limiting, microbatching, etc._
 |===
 
 == Environments Details

@@ -1,12 +1,11 @@
 = Integration Interface Template
-:toc: auto
+:toc: right
 :toclevels: 2
 
 [cols=".^1h,2"]
 |===
 | Process Area |
 | Interface Owner | 
-| Milestone | 
 | Status |
 | JIRA Issue |
 | Integration Blueprint |
@@ -19,9 +18,9 @@
 |===
 |  | Input | Description 
 
-| Interface Name |  | The unique name of the interface
-| Interface Description |  | Provide an overview of the interface's purpose and a short description from a business perspective
-| Enterprise Data Object |  | This field is for the "simple" name of the data that the integration will be based on. The non-technical name of the data. For example 'Invoice', 'Order', etc.
+| Interface Name |  | _The unique name of the interface_
+| Interface Description |  | _Provide an overview of the interface's purpose and a short description from a business perspective_
+| Enterprise Data Object |  | _This field is for the "simple" name of the data that the integration will be based on. The non-technical name of the data. For example 'Invoice', 'Order', etc._
 |===
 
 === Sender
@@ -30,11 +29,11 @@
 |===
 |  | Input | Description 
 
-| Sender system name |  | The name of the system
-| Sender protocol | | SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc.
-| Message format | | JSON, XML, CSV, etc.
-| Technical object / API name | | The name of the technical objects in the sender system
-| Rationale | | Describe reasons for selecting both message protocol and format
+| Sender system name |  | _The name of the system_
+| Sender protocol | | _SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc._
+| Message format | | _JSON, XML, CSV, etc._
+| Technical object / API name | | _The name of the technical objects in the sender system_
+| Rationale | | _Describe reasons for selecting both message protocol and format_
 |===
 
 === Receiver
@@ -43,11 +42,11 @@
 |===
 |  | Input | Description 
 
-| Receiver system name |  | The name of the system
-| Receiver protocol | | SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc.
-| Message format | | JSON, XML, CSV, etc.
-| Technical object / API name | | The name of the technical objects in the receiver system
-| Rationale | | Describe reasons for selecting both message protocol and format
+| Receiver system name |  | _The name of the system_
+| Receiver protocol | | _SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc._
+| Message format | | _JSON, XML, CSV, etc._
+| Technical object / API name | | _The name of the technical objects in the receiver system_
+| Rationale | | _Describe reasons for selecting both message protocol and format_
 |===
 
 === Integration characteristics
@@ -56,17 +55,17 @@
 |===
 |  | Input | Description 
 
-| Interaction type |  | Sync or Async
-| Pull or Push |  | Indicate whether the integration is initiated by the sender (Push) or by the receiver (Pull)
-| Frequency |  | How often the integration is expected to run. For example, event-based, scheduler-based (specify daily, weekly, monthly, etc.)
-| Volumetry. Average message size | | The average size of the message in KB, MB, etc.
-| Volumetry. Average message frequency | | The average number of messages per day, week, month, etc.
-| Volumetry. Peak message size | | The peak size of the message in KB, MB, etc.
-| Volumetry. Peak message frequency | | The peak number of messages per day, week, month, etc.
-| Security requirements | | Describe the security requirements for the integration
-| Message transformation | | Describe the transformation that needs to be done on the message
-| Existing consumers | | List of the existing consumers of the interface
-| Additional information | | Any additional information that is relevant to the integration
+| Interaction type |  | _Sync or Async_
+| Pull or Push |  | _Indicate whether the integration is initiated by the sender (Push) or by the receiver (Pull)_
+| Frequency |  | __How often the integration is expected to run. For example, event-based, scheduler-based (specify daily, weekly, monthly, etc.)__
+| Volumetry. Average message size | | __The average size of the message in KB, MB, etc.__
+| Volumetry. Average message frequency | | __The average number of messages per day, week, month, etc.__
+| Volumetry. Peak message size | | __The peak size of the message in KB, MB, etc.__
+| Volumetry. Peak message frequency | | __The peak number of messages per day, week, month, etc.__
+| Security requirements | | __Describe the security requirements for the integration__
+| Message transformation | | __Describe the transformation that needs to be done on the message__
+| Existing consumers | | __List of the existing consumers of the interface__
+| Additional information | | __Any additional information that is relevant to the integration__
 |===
 
 == Detailed Requirements
@@ -121,42 +120,42 @@ __The message filtering rules should be described here if message filtering is r
 |===
 
 === Error and Exceptional Case Processing
-This section is filled only if it is necessary to describe specific exceptional case processing requirements for a concrete interaction system.
+_This section is filled only if it is necessary to describe specific exceptional case processing requirements for a concrete interaction system._
 
 ==== Sender System
 ===== Functional Errors
 
-This section describes functional logic on system side for triggering, batch-errors, or else.
+_This section describes functional logic on system side for triggering, batch-errors, or else._
 
 ===== Data Errors
 
-Types of data validation errors, and steps for handling, recovering.
+_Types of data validation errors, and steps for handling, recovering._
 
 ===== Connectivity Errors
 
-Transport failures and issues, correction methods (retries, TTL, etc.)
+_Transport failures and issues, correction methods (retries, TTL, etc.)_
 
 ===== Technical Errors
 
-Protocol error-responses codes for basic type of scenarios
+_Protocol error-responses codes for basic type of scenarios_
 
 ==== Receiver System
 ===== Functional Errors
 
-This section describes functional logic on system side for triggering, batch-errors, or else.
+_This section describes functional logic on system side for triggering, batch-errors, or else._
 
 ===== Data Errors
 
-Types of data validation errors, and steps for handling, recovering.
+_Types of data validation errors, and steps for handling, recovering._
 
 ===== Connectivity Errors
 
-Transport failures and issues, correction methods (retries, TTL, etc.)
+_Transport failures and issues, correction methods (retries, TTL, etc.)_
 
 ===== Technical Errors
 
-Protocol error-responses codes for basic type of scenarios
+_Protocol error-responses codes for basic type of scenarios_
 
 == Interface Design
 
-This section is filled during integration interface design.
+_This section is filled during integration interface design._
