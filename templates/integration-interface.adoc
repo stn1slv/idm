@@ -33,7 +33,7 @@
 | Sender system name |  | The name of the system
 | Sender protocol | | SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc.
 | Message format | | JSON, XML, CSV, etc.
-| Technical objects / API name | | The name of the technical objects in the sender system
+| Technical object / API name | | The name of the technical objects in the sender system
 | Rationale | | Describe reasons for selecting both message protocol and format
 |===
 
@@ -46,7 +46,7 @@
 | Receiver system name |  | The name of the system
 | Receiver protocol | | SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc.
 | Message format | | JSON, XML, CSV, etc.
-| Technical objects / API name | | The name of the technical objects in the receiver system
+| Technical object / API name | | The name of the technical objects in the receiver system
 | Rationale | | Describe reasons for selecting both message protocol and format
 |===
 

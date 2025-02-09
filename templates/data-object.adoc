@@ -1,1 +1,46 @@
 = Enterprise Data Object Template
+:toc: auto
+:toclevels: 2
+
+[cols=".^1h,2"]
+|===
+| ID |
+| Name | 
+| Milestone | 
+| Owner |
+| Data Domain |
+| Data Classification |
+| Description |
+|===
+
+== Data object characteristics
+[cols=".^1h,2,2" , options="header"]]
+|===
+|  | Input | Description
+
+| Data Sensitivity | | Describe the level of sensitivity of the data (e.g., public, internal, confidential, restricted).
+| Data Retention | | Specify the duration for which the data should be retained.
+| Data Encryption | | Indicate whether the data needs to be encrypted and the type of encryption required.
+| Data Masking | | Describe any data masking requirements to protect sensitive information.
+| Data Anonymization | | Explain if and how the data should be anonymized to protect individual identities.
+| Data Pseudonymization | | Detail any pseudonymization techniques to be applied to the data.
+| Data Deletion | | Outline the process and conditions for data deletion.
+| Data Archiving | | Specify the archiving requirements for the data.
+| Data Backup | | Describe the backup procedures and frequency.
+| Data Recovery | | Explain the data recovery process in case of data loss.
+| Data Validation | | Detail the validation checks to ensure data accuracy and integrity.
+| Data Transformation | | Describe any transformations the data undergoes during processing.
+| Data Quality | | Specify the quality standards and metrics for the data.
+| Data Governance | | Outline the governance policies and procedures for managing the data.
+| Data Lineage | | Describe the data lineage to track the data's origin and transformations.
+| Data Catalog | | Indicate if the data should be included in a data catalog and any relevant details.
+| Data Dictionary | | Provide a description of the data elements and their definitions.
+|===
+
+=== Data Model
+Relationships with other data objects
+
+
+== List of the interfaces
+
+== Additional Information

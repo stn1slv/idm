@@ -3,28 +3,35 @@
 [cols=".^1h,2"]
 |===
 | ID |
+| Name |
 | Status | 
 | Owner | 
 | System Domain |
-| Purpose |
+| Description |
 | Integration Style |
 | Integration Technology |
 |===
 
 == Technical Details
 
-[cols=".^1h,2"]
+[cols=".^1h,^.^2,.^2, options="header"]
 |===
-| Integration capabilities |
-| Authentication & Authorization | 
-| Performance | 
+|  | Input | Description 
+
+| Integration capabilities | | Fill in protocols and formats for the system, for example:
+
+SOAP over HTTP/s, REST (JSON over HTTPs), REST (XML over HTTPs), File-based (SFTP, S3, etc.), DB access (JDBC)
+
+If the system is participated in the integration as data provider and data receiver then provide the protocols and formats for both cases
+| Authentication & Authorization | | Authentication, Encryption, etc.
+| Performance | | Rate Limiting, etc.
 |===
 
 == Environments Details
 
 [cols=".^1h,^.^2,^.^2,.^1", options="header"]
 |===
-| Environment | System Endpoint | Link to the password manager | Comments 
+| Environment | System Endpoint | Link to the credential manager | Comments 
 
 | Development |  |  | 
 | Quality |  |  | 
