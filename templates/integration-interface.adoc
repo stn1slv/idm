@@ -1,1 +1,162 @@
 = Integration Interface Template
+
+:toc: auto
+
+[cols=".^1,2"]
+|===
+| Process Area |
+| Interface Owner | 
+| Milestone | 
+| Status |
+| JIRA Issue |
+| Integration Blueprint |
+| Technology Blueprint |
+|===
+
+== High-Level Requirements
+
+[cols=".^1,^.^2,.^2, options="header"]
+|===
+|  | Input | Description 
+
+| Interface Name |  | The unique name of the interface
+| Interface Description |  | Provide an overview of the interface's purpose and a short description from a business perspective
+| Enterprise Data Object |  | This field is for the "simple" name of the data that the integration will be based on. The non-technical name of the data. For example 'Invoice', 'Order', etc.
+|===
+
+=== Sender
+
+[cols=".^1,^.^2,.^2, options="header"]
+|===
+|  | Input | Description 
+
+| Sender system name |  | The name of the system
+| Sender protocol | | SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc.
+| Message format | | JSON, XML, CSV, etc.
+| Technical objects / API name | | The name of the technical objects in the sender system
+| Rationale | | Describe reasons for selecting both message protocol and format
+|===
+
+=== Receiver
+
+[cols=".^1,^.^2,.^2, options="header"]
+|===
+|  | Input | Description 
+
+| Receiver system name |  | The name of the system
+| Receiver protocol | | SOAP, HTTP (for RESTful services), oData, SFTP, Kafka, SAP RPC, etc.
+| Message format | | JSON, XML, CSV, etc.
+| Technical objects / API name | | The name of the technical objects in the receiver system
+| Rationale | | Describe reasons for selecting both message protocol and format
+|===
+
+=== Integration characteristics
+
+[cols=".^1,^.^2,.^2, options="header"]
+|===
+|  | Input | Description 
+
+| Interaction type |  | Sync or Async
+| Pull or Push |  | Indicate whether the integration is initiated by the sender (Push) or by the receiver (Pull)
+| Frequency |  | How often the integration is expected to run. For example, event-based, scheduler-based (specify daily, weekly, monthly, etc.)
+| Volumetry. Average message size | | The average size of the message in KB, MB, etc.
+| Volumetry. Average message frequency | | The average number of messages per day, week, month, etc.
+| Volumetry. Peak message size | | The peak size of the message in KB, MB, etc.
+| Volumetry. Peak message frequency | | The peak number of messages per day, week, month, etc.
+| Security requirements | | Describe the security requirements for the integration
+| Message transformation | | Describe the transformation that needs to be done on the message
+| Existing consumers | | List of the existing consumers of the interface
+| Additional information | | Any additional information that is relevant to the integration
+|===
+
+== Detailed Requirements
+=== Mapping and Data Model
+==== Sender Data Model
+
+If the API is published in API Portal, please provide the link to the specific operation within this API.
+
+If the API is not published in API Portal, or this type of API is not supported by API Portal, please attach the API specification (for example, WSDL or OpenAPI) and indicate the name of the operation.
+
+==== Sender Message Example
+
+If the API is published on SwaggerHub AND there is an example with realistic values, then you do not need to fill out this field. Otherwise, you need to attach an example of the message.
+
+==== Receiver Data Model
+
+If the API is published in API Portal, please provide the link to the specific operation within this API.
+
+If the API is not published in API Portal, or this type of API is not supported by API Portal, please attach the API specification (for example, WSDL or OpenAPI) and indicate the name of the operation.
+
+==== Receiver Message Example
+
+If the API is published on API Portal AND there is an example with realistic values, then you do not need to fill out this field. Otherwise, you need to attach an example of the message.
+
+==== Message Filtering
+
+The message filtering rules should be described here if message filtering is required
+
+=== Connectivity Details
+==== Sender Connectivity
+
+[cols=".^1,^.^2,.^2, options="header"]
+|===
+| Environment | Sender System Endpoint (for the integration interface) | Description 
+
+| Development |  |
+| Quality |  |
+| UAT / Pre-Prod |  |
+| Production |  |
+|===
+
+==== Receiver Connectivity
+
+[cols=".^1,^.^2,.^2, options="header"]
+|===
+| Environment | Receiver System Endpoint (for the integration interface) | Description 
+
+| Development |  |
+| Quality |  |
+| UAT / Pre-Prod |  |
+| Production |  |
+|===
+
+=== Error and Exceptional Case Processing
+This section is filled only if it is necessary to describe specific exceptional case processing requirements for a concrete interaction system.
+
+==== Sender System
+===== Functional Errors
+
+This section describes functional logic on system side for triggering, batch-errors, or else.
+
+===== Data Errors
+
+Types of data validation errors, and steps for handling, recovering.
+
+===== Connectivity Errors
+
+Transport failures and issues, correction methods (retries, TTL, etc.)
+
+===== Technical Errors
+
+Protocol error-responses codes for basic type of scenarios
+
+==== Receiver System
+===== Functional Errors
+
+This section describes functional logic on system side for triggering, batch-errors, or else.
+
+===== Data Errors
+
+Types of data validation errors, and steps for handling, recovering.
+
+===== Connectivity Errors
+
+Transport failures and issues, correction methods (retries, TTL, etc.)
+
+===== Technical Errors
+
+Protocol error-responses codes for basic type of scenarios
+
+== Interface Design
+
+This section is filled during integration interface design.
