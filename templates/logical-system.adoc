@@ -23,8 +23,8 @@
 SOAP over HTTP/s, REST (JSON over HTTPs), REST (XML over HTTPs), File-based (SFTP, S3, etc.), DB access (JDBC, ODBC, etc.), Messaging (Kafka, AMQP, JMS, etc.), etc.
 
 If the system is participated in the integration as data provider and data receiver then provide the protocols and formats for both cases
-|Authentication & Authorization | | Authentication, Encryption, etc.
-|Performance | | Rate Limiting, etc.
+|Authentication | | Authentication schema, encryption, etc.
+|Performance | | Rate Limiting, microbatching, etc.
 |===
 
 == Environments Details
