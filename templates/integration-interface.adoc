@@ -73,27 +73,27 @@
 === Mapping and Data Model
 ==== Sender Data Model
 
-If the API is published in API Portal, please provide the link to the specific operation within this API.
+__If the API is published in API Portal, please provide the link to the specific operation within this API.__
 
-If the API is not published in API Portal, or this type of API is not supported by API Portal, please attach the API specification (for example, WSDL or OpenAPI) and indicate the name of the operation.
+__If the API is not published in API Portal, or this type of API is not supported by API Portal, please attach the API specification (for example, WSDL or OpenAPI) and indicate the name of the operation.__
 
 ==== Sender Message Example
 
-If the API is published on SwaggerHub AND there is an example with realistic values, then you do not need to fill out this field. Otherwise, you need to attach an example of the message.
+__If the API is published on API Portal AND there is an example with realistic values, then you do not need to fill out this field. Otherwise, you need to attach an example of the message.__
 
 ==== Receiver Data Model
 
-If the API is published in API Portal, please provide the link to the specific operation within this API.
+__If the API is published in API Portal, please provide the link to the specific operation within this API.__
 
-If the API is not published in API Portal, or this type of API is not supported by API Portal, please attach the API specification (for example, WSDL or OpenAPI) and indicate the name of the operation.
+__If the API is not published in API Portal, or this type of API is not supported by API Portal, please attach the API specification (for example, WSDL or OpenAPI) and indicate the name of the operation.__
 
 ==== Receiver Message Example
 
-If the API is published on API Portal AND there is an example with realistic values, then you do not need to fill out this field. Otherwise, you need to attach an example of the message.
+__If the API is published on API Portal AND there is an example with realistic values, then you do not need to fill out this field. Otherwise, you need to attach an example of the message.__
 
 ==== Message Filtering
 
-The message filtering rules should be described here if message filtering is required
+__The message filtering rules should be described here if message filtering is required.__
 
 === Connectivity Details
 ==== Sender Connectivity

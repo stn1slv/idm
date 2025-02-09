@@ -1,4 +1,6 @@
 = Logical System Template
+:toc: auto
+:toclevels: 2
 
 [cols=".^1h,2"]
 |===
@@ -39,8 +41,8 @@ If the system is participated in the integration as data provider and data recei
 | Production |  |  | 
 |===
 
-== List Of The Interfaces
+== List of the interfaces
 
 == Documentation
 
-== Additional Information
+== Additional information
