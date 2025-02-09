@@ -1,5 +1,6 @@
 = Enterprise Integration Repository Guidelines
 :toc: right
+:toc-title: Contents
 :toclevels: 2
 
 == Repository Ontology

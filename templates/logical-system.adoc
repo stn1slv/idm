@@ -1,5 +1,6 @@
 = Logical System Template
 :toc: right
+:toc-title: Contents
 :toclevels: 2
 
 [cols=".^1h,2"]
