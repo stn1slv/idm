@@ -1,0 +1,14 @@
+[plantuml,,png]
+--
+@startuml
+!include <archimate/Archimate>
+
+' Define elements
+archimate #Application "Sender System" as system1 <<application-component>>
+archimate #Application "Receiver System" as system2 <<application-component>>
+
+' Define relationship
+Rel_Flow_Right(system1, system2, "Data Object name")
+
+@enduml
+--

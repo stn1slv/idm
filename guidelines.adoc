@@ -5,7 +5,7 @@
 
 == Repository Ontology
 
-include::diagram/repository-ontology.adoc[]
+include::diagrams/guidelines-repository-ontology.adoc[]
 
 == Naming Convention
 
