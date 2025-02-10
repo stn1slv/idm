@@ -1,4 +1,3 @@
 .asciidoctor/
-diagrams/images/diag-plantuml-*.*
 images/diag-plantuml-*.*
-templates/images/diag-plantuml-*.*
+*/images/diag-plantuml-*.*
