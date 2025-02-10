@@ -1,3 +1,4 @@
 .asciidoctor/
+*/.asciidoctor
 images/diag-plantuml-*.*
 */images/diag-plantuml-*.*
