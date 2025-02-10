@@ -61,10 +61,10 @@ include::../diagrams/templates-integration-interface-high-level-diagram.adoc[]
 | Interaction type |  | _Sync or Async_
 | Pull or Push |  | _Indicate whether the integration is initiated by the sender (Push) or by the receiver (Pull)_
 | Frequency |  | __How often the integration is expected to run. For example, event-based, scheduler-based (specify daily, weekly, monthly, etc.)__
-| Volumetry. Average message size | | __The average size of the message in KB, MB, etc.__
-| Volumetry. Average message frequency | | __The average number of messages per day, week, month, etc.__
-| Volumetry. Peak message size | | __The peak size of the message in KB, MB, etc.__
-| Volumetry. Peak message frequency | | __The peak number of messages per day, week, month, etc.__
+| Volumetry: average message size | | __The average size of the message in KB, MB, etc.__
+| Volumetry: average message frequency | | __The average number of messages per day, week, month, etc.__
+| Volumetry: peak message size | | __The peak size of the message in KB, MB, etc.__
+| Volumetry: peak message frequency | | __The peak number of messages per day, week, month, etc.__
 | Security requirements | | __Describe the security requirements for the integration__
 | Message transformation | | __Describe the transformation that needs to be done on the message__
 | Existing consumers | | __List of the existing consumers of the interface__
