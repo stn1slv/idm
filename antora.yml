@@ -1,0 +1,6 @@
+name: idm
+version: '0.0.1'
+title: Integration Development Method
+# start_page: index.adoc
+nav:
+- modules/ROOT/nav.adoc

@@ -1,0 +1,24 @@
+= Streaming Integration
+:page=toc: right
+:page-toclevels: 2
+
+== Overview
+Streaming Integration is designed for continuous, real-time data flows between systems. It is essential for processing high-velocity data and providing immediate insights.
+
+== Business Scenario
+A telecommunications company streams real-time call data and network metrics to monitoring systems for instant analysis, while a financial institution uses live market data feeds for dynamic trading decisions.
+
+== Technical Considerations
+* **Continuous Data Flow:** Ingests data as it is generated.
+* **High Throughput / Low Latency:** Ensures minimal delay between data generation and processing.
+* **Distributed Architecture:** Utilizes message brokers or distributed log systems for scalability.
+* **Fault Tolerance:** Implements replication, partitioning, and checkpointing to prevent data loss.
+
+== Benefits and Core Requirements
+* **Horizontal Scalability:** Easily increases capacity by adding resources.
+* **Reliable Delivery:** Supports flexible delivery guarantees (e.g., at-least-once or exactly-once semantics).
+* **Schema Evolution:** Accommodates changes in data structure.
+* **Security and Governance:** Maintains rigorous security and access controls.
+
+== Conclusion
+Streaming Integration is vital for applications requiring real-time processing and immediate responses, forming a key part of modern data architectures.

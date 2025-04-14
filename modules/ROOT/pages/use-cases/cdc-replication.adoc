@@ -1,0 +1,24 @@
+= Change Data Capture (CDC) Replication
+:page=toc: right
+:page-toclevels: 2
+
+== Overview
+CDC is a Data Integration use-case that captures only the changes (inserts, updates, deletes) occurring in source systems and propagates these to target systems. It enables near-real-time data synchronization with minimal overhead.
+
+== Business Scenario
+A bank might use CDC to replicate transaction updates from its core banking system to analytical databases, ensuring management dashboards reflect the latest data.
+
+== Technical Considerations
+* Leverages transaction logs to capture data changes.
+* Processes only incremental changes, reducing data volume and processing time.
+* Minimal impact on source systems.
+* Includes monitoring and error handling to ensure data integrity.
+
+== Benefits and Core Requirements
+* **High Availability:** Supports continuous replication.
+* **Scalability:** Handles increasing data change volumes.
+* **Low Latency:** Minimizes delay between data change and update.
+* **Security:** Protects sensitive data throughout the replication process.
+
+== Conclusion
+CDC replication is a critical technique for modern enterprises needing real-time or near-real-time data synchronization across systems.

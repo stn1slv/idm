@@ -1,0 +1,48 @@
+= Cross-Pattern Integration
+:page=toc: right
+:page-toclevels: 2
+
+== Introduction
+Cross-Pattern Integration encompasses techniques that span both Process and Data Integration, enabling versatile solutions for complex scenarios. This style supports real-time orchestration, continuous data flows, and additional capabilities such as API management, event-driven communication, RPA, and IoT integration.
+
+== Specific Characteristics and Requirements
+
+=== Hybrid Integration Approach
+Leverages both process-centric and data-centric methods to design comprehensive solutions for transactions and analytics.
+
+=== API Management
+Exposes business functionalities via secure APIs with:
+
+* End-to-end lifecycle management.
+* Enforcement of security policies and usage monitoring.
+* Standardized interfaces for broad interoperability.
+
+=== Event-Driven Architecture
+Uses events to trigger system interactions through:
+
+* A publish/subscribe model.
+* Messaging infrastructures (e.g., brokers or streaming platforms).
+* Support for loose coupling and scalability.
+
+=== File-Based Integration
+Facilitates secure batch-oriented data exchanges using standardized file formats (CSV, XML, JSON) and protocols (FTP, SFTP, MFT).
+
+=== Streaming Data Processing
+Manages continuous data flows with:
+
+* High throughput and low latency.
+* Distributed processing frameworks.
+* On-the-fly data transformation and aggregation.
+
+=== IoT Integration
+Connects devices and sensors to enterprise systems by:
+
+* Ingesting real-time sensor data.
+* Employing edge-to-cloud processing for low latency.
+* Ensuring device security and centralized management.
+
+=== Real-Time and Near-Real-Time Capabilities
+Guarantees that both transactional and analytical data movements occur promptly, supporting dynamic business processes.
+
+== Conclusion
+Cross-Pattern Integration offers flexible, robust frameworks to address integration challenges that span multiple domains. It is essential for modern enterprises seeking agility and responsiveness across diverse integration scenarios.
