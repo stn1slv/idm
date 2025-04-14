@@ -1,0 +1,25 @@
+= File-Based Integration
+:page=toc: right
+:page-toclevels: 2
+
+== Overview
+File-Based Integration is a traditional, yet still relevant, pattern within Cross-Pattern Integration. It handles batch-oriented exchanges of data files, typically when real-time processing is not required.
+
+== Business Scenario
+A manufacturing firm might export production schedules as CSV files and import them into another system to update planning. Similarly, a retailer might consolidate daily sales reports via secure file transfers.
+
+== Technical Considerations
+* **Batch Processing:** Executes on fixed intervals (hourly, daily, weekly).
+* **Standard File Formats:** Commonly uses CSV, XML, or JSON.
+* **Secure Transfer Protocols:** Uses FTP, SFTP, or managed file transfer solutions.
+* **Automation:** Integrates with scheduling tools to automate file exchanges.
+* **Data Validation:** Ensures accuracy through built-in error checking.
+
+== Benefits and Core Requirements
+* **Scalability:** Capable of handling large volumes and file sizes.
+* **Security:** Transmits data securely via encryption and secure channels.
+* **Data Integrity:** Implements verification and reconciliation processes.
+* **Monitoring and Alerting:** Provides tools for active oversight of transfers.
+
+== Conclusion
+File-Based Integration remains a robust approach for batch data transfers, especially suitable for predictable, non-real-time environments.

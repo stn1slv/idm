@@ -1,0 +1,183 @@
+= Integration Styles Guide
+:page=toc: right
+:page-toclevels: 2
+
+== Introduction
+This guide presents a vendor-agnostic methodology for enterprise integration architecture and strategy. It is designed for enterprise architects, solution architects, integration developers, infrastructure architects, and key business stakeholders. The methodology organizes integration into three primary styles:
+
+* **Process Integration:** Focuses on real-time, message-based orchestration of business processes.
+* **Data Integration:** Emphasizes the extraction, transformation, consolidation, and synchronization of data.
+* **Cross-Pattern Integration:** Encompasses hybrid approaches that support both transactional processes and data movement (including API management, event-driven patterns, RPA, and IoT integration).
+
+Each section includes definitions, business scenarios, and key technical considerations. See Appendix A for a quick reference summary.
+
+== Process Integration
+
+Process Integration connects multiple business applications in real time to execute and synchronize transactional processes. Typical implementations use middleware, an ESB, or workflow engines.
+
+=== Application-to-Application (A2A) Integration
+A2A integration enables direct, message-based data exchange between internal enterprise applications.
+
+Examples:
+
+* *Retail:* An e-commerce system immediately sends new order details to the inventory system.
+* *Manufacturing:* Sales order data is transmitted directly to production scheduling systems.
+
+=== Business-to-Business (B2B) Integration
+B2B integration facilitates secure, standardized electronic exchanges between organizations using protocols such as EDI, XML, and RESTful APIs.
+
+Examples:
+
+* *Logistics:* Electronic bills of lading and tracking information are exchanged with carrier partners.
+* *Manufacturing:* Procurement orders and invoices are automatically exchanged between a manufacturer and its suppliers.
+
+=== Workflow Automation
+This pattern orchestrates complex, multi-system business processes by coordinating tasks, data flows, and human interactions using BPM and workflow engines.
+
+Examples:
+
+* *HR:* Automates onboarding processes by integrating data from HR, IT, and facilities systems.
+* *Finance:* Routes invoice approvals through multiple departments with minimal manual intervention.
+
+=== Robotic Process Automation (RPA)
+RPA uses software bots to mimic user interactions, automating repetitive tasks—especially in legacy systems where APIs are not available.
+
+Examples:
+
+* *Banking:* Bots extract data from scanned documents to update customer records.
+* *Insurance:* RPA processes claims by automating data entry across disconnected systems.
+
+=== Identity Provisioning Integration
+This pattern synchronizes user identities and access rights across diverse systems, ensuring updated credentials in near-real-time.
+
+Examples:
+
+* *Financial Services:* New employee accounts are created and synchronized across core systems.
+* *Healthcare:* Access rights for clinical and administrative applications are centrally managed.
+
+=== Master Data Integration
+Master Data Integration keeps core business data (e.g., customers, products) consistent across systems, typically using API calls or middleware.
+
+Examples:
+
+* *Retail:* A centralized product catalog is maintained in sync across online stores, inventory systems, and pricing engines.
+* *Telecommunications:* Customer data is continuously replicated between billing and service management systems.
+
+== Data Integration
+
+Data Integration deals with the movement, transformation, and consolidation of data among diverse systems. This style supports analytics, reporting, and enterprise data consistency.
+
+=== Extract, Transform, Load (ETL/ELT)
+ETL/ELT processes extract data from source systems, transform it to meet the target schema, and load it into analytical repositories.
+
+Examples:
+
+* *Retail:* Daily sales data is processed into a centralized data warehouse.
+* *Telecommunications:* Call data records are transformed and loaded for performance analytics.
+
+=== Change Data Capture (CDC)
+CDC identifies and replicates only the data changes (inserts, updates, deletes) from source systems in near-real-time.
+
+Examples:
+
+* *Finance:* Transactional updates are continually synchronized from core banking systems to reporting databases.
+* *Healthcare:* Patient record modifications are captured instantly to keep analytics current.
+
+=== Data Virtualization
+Data Virtualization provides a unified, real-time view of distributed data through an abstraction layer—without physically moving the data.
+
+Examples:
+* *Healthcare:* Clinicians access integrated patient data from multiple departmental systems.
+* *Finance:* Virtualized data sources enable comprehensive risk assessment across legacy and modern systems.
+
+== Cross-Pattern Integration
+
+Cross-Pattern Integration incorporates techniques that bridge Process and Data Integration while providing additional capabilities for modern enterprises.
+
+=== API-Managed Integration
+API-Managed Integration exposes business functionalities securely via APIs, simplifying integration through governance, analytics, and policy enforcement.
+
+Examples:
+
+* *Retail:* Exposes real-time product and inventory APIs for mobile or third-party access.
+* *Finance:* Open banking initiatives use secure APIs to offer customer data to authorized partners.
+
+=== Event-Based Integration
+This pattern employs an event-driven architecture to trigger processes and data exchanges asynchronously via message brokers or streaming platforms.
+
+Examples:
+
+* *Logistics:* An event like “shipment dispatched” automatically updates related systems.
+* *Smart Buildings:* Sensor events trigger real-time adjustments to HVAC systems.
+
+=== File-Based Integration (File Transfer)
+File-Based Integration handles batch-oriented data exchanges using standardized file formats transmitted via secure protocols.
+
+Examples:
+
+* *Manufacturing:* Production schedules are exchanged as files on a regular basis.
+* *Retail:* Daily sales reports are consolidated using secure file transfers.
+
+=== Streaming Integration
+Streaming Integration processes continuous, real-time data flows using distributed messaging systems.
+
+Examples:
+
+* *Telecommunications:* Real-time streaming of call data supports immediate network monitoring.
+* *Finance:* Streaming market data feeds facilitate instantaneous trading decisions.
+
+=== IoT Integration
+IoT Integration connects sensor data and device telemetry with enterprise systems, enabling predictive maintenance and smart automation.
+
+Examples:
+
+* *Manufacturing:* Equipment sensors stream data to analytics platforms for maintenance alerts.
+* *Smart Cities:* Environmental sensors integrate with public safety systems.
+
+== Appendix A: Quick Reference Table
+[cols="1,1,3", options="header"]
+|===
+| Integration Style | Pattern | Description
+
+| Process Integration | A2A Integration
+| Direct, real-time internal application communication.
+
+| Process Integration | B2B Integration
+| Secure, standardized exchanges with external partners.
+
+| Process Integration | Workflow Automation
+| End-to-end orchestration of complex business tasks.
+
+| Process Integration | RPA
+| Automation of routine tasks via UI-based bots.
+
+| Process Integration | Identity Provisioning
+| Automated synchronization of user identities across systems.
+
+| Process Integration | Master Data Integration
+| Consistent core business data across applications.
+
+| Data Integration | ETL/ELT
+| Batch extraction, transformation, and loading for analytics.
+
+| Data Integration | CDC
+| Real-time replication of data changes.
+
+| Data Integration | Data Virtualization
+| Unified, on-demand view of distributed data without replication.
+
+| Cross-Pattern Integration | API-Managed Integration
+| Exposing functions via secure APIs with lifecycle management.
+
+| Cross-Pattern Integration | Event-Based Integration
+| Asynchronous, event-driven coordination across systems.
+
+| Cross-Pattern Integration | File-Based Integration
+| Batch file transfers via secure channels.
+
+| Cross-Pattern Integration | Streaming Integration
+| Continuous, low-latency data streaming.
+
+| Cross-Pattern Integration | IoT Integration
+| Integration of sensor and device data with enterprise systems.
+|===
