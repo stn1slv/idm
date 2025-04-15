@@ -1,11 +1,6 @@
-= Integration Governance Method
-:sectnums:
-:toc: left
-:toclevels: 3
+= Integration Development Method
 
-:toc!:
+This repository contains the source files for the Integration Development Method documentation.
 
-== Overview
-
-This document describes the governance method for integration projects.
+The compiled documentation is available at https://stn1slv.github.io/idm/[stn1slv.github.io/idm/]
 
