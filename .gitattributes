@@ -1,0 +1,4 @@
+# Linguist overrides
+*.adoc linguist-detectable=true
+*.adoc linguist-language=AsciiDoc
+*.adoc linguist-documentation=false
