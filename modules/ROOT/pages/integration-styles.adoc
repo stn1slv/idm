@@ -5,6 +5,8 @@
 == Introduction
 This guide presents a vendor-agnostic methodology for enterprise integration architecture and strategy. It is designed for enterprise architects, solution architects, integration developers, infrastructure architects, and key business stakeholders. The methodology organizes integration into three primary styles:
 
+image::integration-styles.svg[]
+
 * **Process Integration:** Focuses on real-time, message-based orchestration of business processes.
 * **Data Integration:** Emphasizes the extraction, transformation, consolidation, and synchronization of data.
 * **Cross-Pattern Integration:** Encompasses hybrid approaches that support both transactional processes and data movement (including API management, event-driven patterns, RPA, and IoT integration).
