@@ -89,6 +89,7 @@ Examples:
 Data Virtualization provides a unified, real-time view of distributed data through an abstraction layer—without physically moving the data.
 
 Examples:
+
 * *Healthcare:* Clinicians access integrated patient data from multiple departmental systems.
 * *Finance:* Virtualized data sources enable comprehensive risk assessment across legacy and modern systems.
 
