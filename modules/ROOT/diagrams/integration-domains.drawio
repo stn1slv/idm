@@ -1,17 +1,20 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.2 Chrome/134.0.6998.178 Electron/35.1.2 Safari/537.36" version="26.2.2">
   <diagram name="Page-1" id="uFNY2tgUwzBCQaIbQbTQ">
-    <mxGraphModel dx="1465" dy="1011" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1556" dy="1074" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="QjlgSMQUOBEvEYTRAgmL-30" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=#dae8fc;strokeColor=#DAE8FC;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="680" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="QjlgSMQUOBEvEYTRAgmL-74" value="Internal perimeter" style="rounded=1;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;strokeColor=default;fillColor=none;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="44" y="43" width="446" height="232" as="geometry" />
+        </mxCell>
         <mxCell id="QjlgSMQUOBEvEYTRAgmL-48" style="rounded=1;hachureGap=4;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=#60a917;strokeColor=#2D7600;strokeWidth=5.9055;startArrow=block;startFill=1;endArrow=none;endFill=1;exitX=0.172;exitY=1;exitDx=0;exitDy=0;entryX=0.171;entryY=0.008;entryDx=0;entryDy=0;entryPerimeter=0;exitPerimeter=0;" edge="1" parent="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="258.84000000000003" y="279.9999999999999" as="sourcePoint" />
             <mxPoint x="258.12" y="441.9200000000001" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="QjlgSMQUOBEvEYTRAgmL-30" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=#dae8fc;strokeColor=#DAE8FC;" vertex="1" parent="1">
-          <mxGeometry x="40" y="40" width="680" height="240" as="geometry" />
         </mxCell>
         <mxCell id="QjlgSMQUOBEvEYTRAgmL-31" value="" style="rounded=0;whiteSpace=wrap;html=1;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#F5F5F5;" vertex="1" parent="1">
           <mxGeometry x="40" y="440" width="680" height="160" as="geometry" />
@@ -111,12 +114,6 @@
         </mxCell>
         <mxCell id="QjlgSMQUOBEvEYTRAgmL-66" value="" style="fontColor=#0066CC;verticalAlign=top;verticalLabelPosition=bottom;labelPosition=center;align=center;html=1;outlineConnect=0;fillColor=#CCCCCC;strokeColor=#6881B3;gradientColor=none;gradientDirection=north;strokeWidth=2;shape=mxgraph.networks.server;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;shadow=0;" vertex="1" parent="QjlgSMQUOBEvEYTRAgmL-70">
           <mxGeometry x="14.530000000000001" y="28" width="30" height="35" as="geometry" />
-        </mxCell>
-        <mxCell id="QjlgSMQUOBEvEYTRAgmL-71" value="" style="endArrow=none;dashed=1;html=1;rounded=0;hachureGap=4;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fillColor=#b0e3e6;strokeColor=#0e8088;" edge="1" parent="1">
-          <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="510" y="269" as="sourcePoint" />
-            <mxPoint x="510" y="49" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
