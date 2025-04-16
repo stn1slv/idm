@@ -1,5 +1,89 @@
 # Integration Domains
 :page=toc: right
-:page-toclevels: 2
+:page-toclevels: 3
 
-TBD
+== On-Premise
+
+=== Definition & Hosting
+* Systems or applications hosted within your enterprise’s **own facilities** (data centers or colocation).
+* You manage the physical hardware, virtualization layers, network, and OS stack (whether fully bare metal or running a “private cloud” environment).
+* Typically provides maximum ownership and control of infrastructure.
+
+=== Networking & Security
+* Operates on **internal LAN/WAN**, possibly using DMZ for external access.
+* You handle perimeter security, OS patching, identity/access management, and compliance baselines.
+* May use virtualization or container orchestration in a “private cloud” style (for elasticity and self-service), but remains dedicated to your organization.
+
+=== Common Use Cases
+* **Legacy** or specialized systems requiring direct hardware or older protocols.
+* **Modern/Private Cloud** with advanced orchestration but fully under your governance and network domain.
+* Internal, high-volume data flows with minimal latency concerns, behind corporate firewalls.
+
+=== Key Points
+* Physical location, hardware, and virtualization are under **your** full control.
+* Easier to ensure data sovereignty if everything remains on your own premises or private hosting.
+* Security model is mostly closed to the outside world unless specifically opened (via DMZ, VPN, etc.).
+
+== Cloud
+
+This domain covers **all externally hosted** environments not fully owned or operated by you. It often breaks down further into Software-as-a-Service (SaaS), Infrastructure/Platform-as-a-Service (IaaS/PaaS), and external partner/government solutions (B2B/B2G).
+
+=== SaaS (Software-as-a-Service)
+
+==== Definition & Hosting
+* Vendor-managed applications (CRM, HR, finance, etc.) consumed via subscription.
+* No direct control over underlying OS or infrastructure; you configure and use published APIs.
+
+==== Networking & Security
+* Primarily over the public internet (HTTPS), possibly with optional VPN tunnels or direct connects.
+* Shared responsibility model: the provider secures infrastructure and performs updates; you manage application data usage, user security, and integrations.
+
+==== Common Use Cases
+* Rapid deployment of standardized business solutions without heavy operational overhead.
+* Integrations with third-party or partner SaaS for real-time collaboration (orders, invoices, marketing campaigns, etc.).
+
+=== IaaS/PaaS (Infrastructure/Platform-as-a-Service)
+
+==== Definition & Hosting
+* You rent virtual machines, containers, or application runtimes from a public cloud provider (e.g., AWS, Azure, GCP).
+* **IaaS**: You manage your OS, patches, and app stack on the provider’s compute/storage/network.  
+* **PaaS**: You only manage code/data; the provider handles OS and middleware updates.
+
+==== Networking & Security
+* Typically use Virtual Private Clouds (VPCs) or subnets with controlled ingress/egress.
+* Shared responsibility: provider secures physical hardware, hypervisors; you secure your OS (IaaS) or application config (PaaS).
+* Often integrated with on-prem networks via VPN or direct connect lines for hybrid scenarios.
+
+==== Common Use Cases
+* Custom microservices, event-driven apps, or serverless functions that need global scalability.
+* Containerized or ephemeral workloads with flexible resource usage.
+* Running third-party software in a public cloud environment while retaining partial OS-level control (IaaS).
+
+=== B2B / B2G (External Partner, Government)
+
+==== Definition & Hosting
+* Systems or portals not operated by you, such as business partners, suppliers, customers, or government agencies.
+* From your perspective, these endpoints are “external cloud” (if only accessible over the public internet or specialized secure channels).
+
+==== Networking & Security
+* Often stricter or specialized protocols (EDI X12, EDIFACT, RosettaNet) or mandatory encryption standards.
+* Could include e-invoicing or e-tax submission to a government SaaS portal, or supply chain collaboration with a partner’s on-prem or cloud environment.
+* You generally rely on **secure internet endpoints**, partner-defined authentication (certificates, tokens), and standardized message formats.
+
+==== Common Use Cases
+* **B2B**: Exchanging purchase orders, invoices, advanced shipping notices with external companies.
+* **B2G**: Filing digital tax returns, e-invoicing, customs declarations to government portals.
+* Can be merged into “Public Cloud” connections, but many enterprises highlight it separately due to compliance/regulatory overhead.
+
+== Differences at a Glance
+
+[cols="25,25,25", options="header"]
+|===
+| Aspect                    | On-Premises (including Private Cloud)                      | Cloud (SaaS / IaaS / PaaS / B2B/B2G)
+| Hosting Ownership        | Fully internal or privately dedicated to your org          | Externally managed by a provider, partner, or agency
+| Network & Connectivity   | LAN/WAN behind corporate firewalls; optional DMZs or VPN   | Usually over public internet or dedicated links (VPN, direct connect)
+| Security                 | You handle all security layers, from physical to OS        | Shared responsibility model; rely partly on external provider or partner’s policies
+| Compliance & Data Control| Easiest to enforce local data residency & custom policies  | Must align with provider or partner compliance frameworks, regions, and SLAs
+| Integration Patterns     | Could be legacy, file-based, or private APIs; control is local | Typically API-driven, event-driven; often using published vendor endpoints or EDI  
+| Use Cases                | Legacy ERP, big data in a private data center, container-based private cloud | SaaS solutions (CRM, HR), custom apps in IaaS/PaaS, external B2B trading, or government e-invoicing
+|===
