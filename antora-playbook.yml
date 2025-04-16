@@ -16,7 +16,10 @@ ui:
     contents: |
       static_files:
       - .nojekyll
+      - favicon.ico
   - path: .nojekyll
+  - path: favicon.ico
+    contents: ./ui-bundle/favicon.ico
 
 output:
   dir: ./build
