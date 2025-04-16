@@ -2,7 +2,9 @@
 :page=toc: right
 :page-toclevels: 3
 
-== On-Premise
+image::integration-domains.svg[]
+
+== On-Premises
 
 === Definition & Hosting
 * Systems or applications hosted within your enterprise’s **own facilities** (data centers or colocation).
