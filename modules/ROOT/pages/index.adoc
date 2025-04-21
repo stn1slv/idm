@@ -54,7 +54,7 @@ image:overview.svg[]
 . Integration Principles – Define key architectural guidelines
 . Integration Technology Mapping – Map integration styles to capabilities and tools
 . Integration Blueprint – Create prescriptive architecture templates and solution diagrams
-. Technology Blueprint – Detail technology-agnostic infrastructure components
+. Technology Blueprint – Detail technology-specific integration components and patterns
 . Integration Protocols, Data Formats & API Specifications – Define interface and communication standards
 . Data Security – Address integration-specific security, compliance, and access concerns
 
