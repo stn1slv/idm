@@ -1,0 +1,89 @@
+= On-Premise to Cloud Integration Domain
+:page-toc: right
+:page-toclevels: 2
+
+== Overview
+
+The On-Premise to Cloud domain refers to scenarios where systems hosted in enterprise-controlled data centers or private clouds initiate communication with externally hosted systems in the public cloud. This is a common pattern in hybrid integration landscapes where existing on-premise applications need to interact with SaaS, PaaS, or other cloud-native services.
+
+== Characteristics
+
+* **Initiator**: Internal systems located in corporate data centers or private clouds.
+* **Target**: Cloud-based APIs, services, or platforms.
+* **Protocols**: REST, SOAP, HTTPS, MQTT, Kafka.
+* **Security Mechanisms**: Outbound firewalls, OAuth 2.0 clients, TLS, client certificates.
+* **Network Path**: Traffic flows from internal network to external internet or via dedicated connections (VPN, Direct Connect, ExpressRoute).
+
+== Common Use Cases
+
+* ERP systems pushing purchase orders to a cloud-based procurement portal.
+* Core banking systems sending customer updates to a CRM like Salesforce.
+* On-prem log aggregators streaming events to cloud observability platforms.
+* Batch jobs publishing data to public cloud storage or analytics engines.
+
+== Integration Styles & Patterns
+
+* **API-Managed Integration**: On-prem systems act as clients consuming public APIs.
+* **Data Integration**: Scheduled exports of CSV/JSON to cloud storage buckets.
+* **Event-Based Integration**: Internal publishers pushing to cloud-managed Kafka or MQTT brokers.
+
+== Technology Options
+
+[cols="1,1", options="header"]
+|===
+| Category | Examples
+| Connectivity Gateway | Azure Application Gateway, AWS PrivateLink, VPN, Reverse Proxy
+| Messaging / Event Bus | Apache Kafka, MQTT, Confluent, Azure Event Hubs
+| Middleware / ESB | Apache Camel, Dell Boomi, Mulesoft, SAP PI/PO
+| Integration Agent | Azure Integration Runtime, Informatica Secure Agent, Talend Remote Engine
+| Identity / Access | Keycloak, ADFS, Azure AD, OAuth Clients
+|===
+
+== Security Considerations
+
+* Enforce outbound firewall rules to allow only intended cloud destinations.
+* Use secure authentication methods (client credentials, mutual TLS).
+* Implement API throttling and retries for unstable network links.
+* Ensure token storage and refresh are handled securely on-prem.
+
+== Governance Guidance
+
+* **Asset Classification**: Define and catalog all on-prem systems accessing cloud.
+* **Change Management**: Coordinate changes between internal and cloud teams.
+* **Auditability**: Centralize logging of all external calls from on-prem.
+
+== Observability & NFRs
+
+* Enable outbound tracing from on-premise services to cloud APIs.
+* Monitor retry rates, latency, and HTTP status codes.
+* Set SLAs for outbound availability and resilience.
+
+== Best Practices
+
+* Use API Gateway as a secure bridge between on-prem and cloud APIs.
+* Decouple systems using queues or topics to avoid tight coupling.
+* Prefer stateless designs to avoid maintaining session context across domains.
+* Align data retention and encryption policies with cloud provider requirements.
+
+== Template Artifacts
+
+* Outbound API call specification template
+* Proxy configuration checklist (TLS, DNS, ports)
+* Confluence page template for on-prem to cloud use-case documentation
+* Retry/backoff policy guideline document
+
+== Example Blueprint
+
+=== Scenario: On-Prem ERP → Salesforce
+
+* **Purpose**: Sync customer master data to Salesforce CRM.
+* **Initiation**: On-prem SAP system sends HTTP POST to Salesforce API.
+* **Security**: OAuth 2.0 with certificate-based client authentication.
+* **Technology Stack**: SAP PO → Mulesoft → Salesforce.
+* **Monitoring**: Logs collected on-prem and forwarded to Azure Monitor.
+
+== Related Domains
+
+* See: xref:domains/cloud-to-on-premise.adoc[Cloud To On-Premise] for inverse traffic direction.
+* See: xref:integration-styles.adoc[Integration Styles] to align integration style with this domain.
+

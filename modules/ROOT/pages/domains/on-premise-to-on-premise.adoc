@@ -1,0 +1,94 @@
+= On-Premise to On-Premise Integration Domain
+:page-toc: right
+:page-toclevels: 2
+
+== Overview
+
+The On-Premise to On-Premise domain covers integrations between systems fully hosted within enterprise-controlled data centers or private cloud environments. These integrations often involve legacy systems and high-performance internal transactions, and typically benefit from lower latency and full infrastructure control.
+
+== Characteristics
+
+* **Deployment Location**: Both systems reside inside corporate-managed environments.
+* **Common Technologies**: ESBs, message brokers, file transfers, SOAP/REST APIs.
+* **Protocols**: SOAP, REST, JDBC, JMS, FTP/SFTP, proprietary connectors.
+* **Security Mechanisms**: Internal IAM, network-level firewalls, VPN segmentation.
+* **Latency Profile**: Very low; systems typically connected via LAN or private WAN.
+* **Availability**: Often part of mission-critical infrastructure with HA/DR setups.
+
+== Common Use Cases
+
+* ERP and warehouse management systems (WMS) exchanging stock and fulfillment data.
+* Batch synchronization between finance (SAP) and reporting systems.
+* File-based exchanges between legacy CRM and billing systems.
+* Integration between HR systems and corporate directories (e.g., AD, LDAP).
+
+== Integration Styles & Patterns
+
+* **Process Integration**: Message-based orchestration of real-time or near-real-time processes.
+* **File-Based Integration**: For legacy batch scenarios or when APIs are unavailable.
+* **Workflow Automation**: Cross-system orchestration using BPM or orchestration engines.
+* **Master Data Synchronization**: Core data entity alignment (e.g., products, customers).
+
+== Technology Options
+
+[cols="1,1", options="header"]
+|===
+| Category | Examples
+| Integration Frameworks | Apache Camel, Spring Integration, TIBCO BW, IBM App Connect
+| Messaging Brokers | ActiveMQ, RabbitMQ, IBM MQ
+| File Transfer & ETL | Informatica, SSIS, Talend
+| Workflow Engines | Camunda, jBPM, Bizagi, Oracle BPM
+| Security | LDAP, Kerberos, certificate-based auth
+| Observability | ELK Stack, Prometheus + Grafana, AppDynamics
+|===
+
+== Security Considerations
+
+* Rely on internal firewalls and VLAN segmentation.
+* Apply least-privilege access to message queues, file shares, and services.
+* Secure service-to-service calls with internal CA-signed certificates.
+* Monitor privileged user access and admin actions.
+
+== Governance Guidance
+
+* **Change Management**: Align with CAB/ITSM processes for production releases.
+* **Version Control**: Maintain integration logic in source control (e.g., Git).
+* **Configuration Management**: Centralize runtime properties via vaults or config servers.
+* **Documentation**: Catalog each integration with system owners, contact points, and dependencies.
+
+== Observability & NFRs
+
+* Monitor message queues and integration runtimes.
+* Track SLA violations, batch completion rates, and message loss.
+* Implement alerting for failed file transfers, API timeouts, or DB connection drops.
+* Ensure DR failover mechanisms are tested and validated.
+
+== Best Practices
+
+* Use message correlation IDs for traceability.
+* Decouple integrations using pub/sub or intermediate stores.
+* Reuse transformation mappings and canonical models.
+* Build test automation around integration endpoints and edge cases.
+
+== Template Artifacts
+
+* Interface specification template (REST/SOAP)
+* Message mapping sheets (XLS or JSON Schema)
+* Deployment checklist for secured internal services
+* Confluence template for documenting legacy-to-legacy interfaces
+
+== Example Blueprint
+
+=== Scenario: SAP ECC ↔ Warehouse Management System
+
+* **Purpose**: Sync stock movements and goods receipts.
+* **Initiation**: SAP triggers IDoc messages to WMS queue.
+* **Security**: VPN-segmented VLAN, SAP-certified adapter.
+* **Technology Stack**: SAP PI/PO, IBM MQ, Java microservice for transformation.
+* **Monitoring**: Logs shipped to ELK stack; functional errors auto-reported via email.
+
+== Related Domains
+
+* See: xref:domains/on-premise-to-cloud.adoc[On-Premise To Cloud] for hybrid connectivity.
+* See: xref:styles/process-integration.adoc[Process Integration] and xref:use-cases/file-based-integration.adoc[File-Based Integration Use Case] for suitable styles.
+

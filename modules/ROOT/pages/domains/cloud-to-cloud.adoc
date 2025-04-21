@@ -1,0 +1,90 @@
+= Cloud to Cloud Integration Domain
+:page-toc: right
+:page-toclevels: 2
+
+== Overview
+
+The Cloud to Cloud domain refers to integrations between systems both hosted in external cloud environments. These may be within the same provider (e.g., AWS Lambda to S3) or across different providers (e.g., Salesforce to Workday). Such integrations are increasingly common in SaaS-first and API-first ecosystems, and benefit from modern protocols, elasticity, and cloud-native services.
+
+== Characteristics
+
+* **Deployment Location**: Both endpoints reside in public or private cloud environments.
+* **Common Services**: SaaS apps, PaaS components, managed integration services.
+* **Protocols**: REST, GraphQL, gRPC, Webhooks, Kafka, AMQP.
+* **Security Mechanisms**: OAuth 2.0, API keys, mTLS, JWT, mutual trust models.
+* **Latency Profile**: Typically low within same provider region; inter-cloud may vary.
+* **Scalability**: Native elasticity supported by most cloud services.
+
+== Common Use Cases
+
+* CRM (Salesforce) synchronizing customer data with Marketing Automation (Marketo).
+* Order fulfillment across ERP (SAP S/4HANA Cloud) and e-commerce (Shopify).
+* Data streaming from IoT cloud platforms (Azure IoT Hub) into analytics (Snowflake).
+* Workflow automation between ServiceNow and Microsoft Teams.
+
+== Integration Styles & Patterns
+
+* **API-Managed Integration**: Most interactions are API-driven; use API Gateways for policy enforcement and observability.
+* **Event-Driven Integration**: Systems produce and consume events via managed brokers (e.g., Amazon EventBridge, Azure Event Grid).
+* **Cross-Pattern Integration**: Combines API, data sync, and event streams in hybrid orchestrations.
+
+== Technology Options
+
+[cols="1,1", options="header"]
+|===
+| Category | Examples
+| API Management | Apigee, Azure API Management, AWS API Gateway
+| iPaaS / Integration Hubs | Boomi, Mulesoft, SAP Integration Suite, Workato
+| Event Brokers | Confluent Cloud, Amazon SNS/SQS, Azure Service Bus
+| Identity and Access | Okta, Azure AD, Auth0, IAM of cloud providers
+| Observability | Datadog, New Relic, CloudWatch, Azure Monitor
+|===
+
+== Security Considerations
+
+* Prefer mutual TLS or signed JWT tokens for service-to-service calls.
+* Apply rate limiting, quota policies, and anomaly detection.
+* Maintain audit trails and log API usage.
+* Verify endpoint identity via trusted DNS + certificate validation.
+
+== Governance Guidance
+
+* **Design-Time Governance**: Register APIs and events in a centralized catalog.
+* **Runtime Governance**: Use monitoring, SLAs, and failover policies.
+* **Compliance**: Validate data residency and privacy regulations (e.g., GDPR, HIPAA).
+
+== Observability & NFRs
+
+* Ensure distributed tracing is implemented (OpenTelemetry/Zipkin).
+* Track latency, throughput, retry rates.
+* Set up dashboards with alerting thresholds.
+
+== Best Practices
+
+* Co-locate integrations in the same cloud region where possible.
+* Use service-mesh or API gateways to centralize control.
+* Align naming and versioning of APIs across platforms.
+* Apply CI/CD for integration artifacts (e.g., workflows, APIs).
+
+== Template Artifacts
+
+* API specification template (OpenAPI v3)
+* Event contract template (AsyncAPI)
+* Deployment checklist for cross-cloud authentication and DNS setup
+* Confluence page template for documenting Cloud to Cloud integration scenario
+
+== Example Blueprint
+
+=== Scenario: Salesforce ↔ Workday Integration
+
+* **Purpose**: Sync employee records for provisioning and payroll.
+* **Initiation**: Salesforce triggers a webhook on employee updates.
+* **Security**: OAuth 2.0 client credentials with IP allowlists.
+* **Technology Stack**: Mulesoft CloudHub, Azure Functions, Workday APIs.
+* **Monitoring**: Logs sent to Azure Monitor with alerting via Opsgenie.
+
+== Related Domains
+
+* See: xref:domains/cloud-to-on-premise.adoc[Cloud to On-Premise] for hybrid cloud connectivity.
+* See: xref:integration-styles.adoc[Integration Styles] for matching integration styles to this domain.
+

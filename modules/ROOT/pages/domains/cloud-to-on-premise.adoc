@@ -1,0 +1,88 @@
+= Cloud to On-Premise Integration Domain
+:page-toc: right
+:page-toclevels: 2
+
+== Overview
+
+The Cloud to On-Premise domain covers integration flows where a cloud-hosted system (SaaS, PaaS, or custom app) initiates communication with an internally hosted enterprise system. This domain presents specific challenges related to secure inbound access, network demilitarization, and monitoring traffic crossing perimeter boundaries.
+
+== Characteristics
+
+* **Deployment Location**: Initiator resides in public cloud; target is within enterprise-controlled on-premises infrastructure.
+* **Typical Channels**: APIs, SFTP, message queues (with relays), email gateways.
+* **Security Boundaries**: Traverses enterprise firewall or DMZ; requires explicit exposure or mediation.
+* **Protocols**: HTTPS (API), SFTP (file-based), Webhooks, VPN tunnels, reverse proxies.
+
+== Common Use Cases
+
+* SaaS (e.g., Salesforce) sending leads to on-prem CRM or ERP.
+* Cloud commerce system triggering order processing in on-prem inventory management.
+* Cloud automation or workflow platform updating legacy systems.
+
+== Integration Styles & Patterns
+
+* **Webhook/Event-Based Integration**: SaaS platforms sending real-time events to exposed on-prem endpoints.
+* **Reverse Proxy/API Gateway**: Internal APIs securely exposed via controlled ingress.
+* **File Transfer Integration**: Cloud solutions placing files in secure MFT zones for on-prem consumption.
+* **B2B Gateway Pattern**: Internal gateway mediates external requests and applies security controls.
+
+== Technology Options
+
+[cols="1,1", options="header"]
+|===
+| Category | Examples
+| API Exposure | Azure Application Gateway, AWS API Gateway + PrivateLink, NGINX reverse proxy
+| VPN/Network | Azure VPN Gateway, AWS Direct Connect, IPSec tunnels
+| Integration Middleware | Mulesoft Runtime Fabric, SAP Cloud Connector, Apache Camel
+| File Exchange | Azure Blob Storage + SFTP Bridge, Managed File Transfer (Axway, GoAnywhere)
+| Zero Trust Platforms | Zscaler, Cloudflare Access, Tailscale
+|===
+
+== Security Considerations
+
+* Never expose on-prem endpoints directly without mediation.
+* Use IP allowlisting and TLS termination at perimeter.
+* Employ mutual TLS or signed JWT for authentication.
+* Apply WAF/IDS/IPS where possible.
+
+== Governance Guidance
+
+* Maintain ingress inventory and change approvals.
+* All exposed services must be registered and version-controlled.
+* Conduct risk assessment for inbound cloud connections.
+* Define escalation paths and DR/failover procedures.
+
+== Observability & NFRs
+
+* Enable access logging at proxy/gateway level.
+* Track inbound traffic volume, error rates, and latency.
+* Monitor for anomalies using SIEM.
+
+== Best Practices
+
+* Use DMZ or segmented network zones for inbound traffic.
+* Automate provisioning of reverse proxy routes via IaC.
+* Integrate proxy rules with centralized secrets and certificate stores.
+* Include audit logging and retention policies.
+
+== Template Artifacts
+
+* Ingress API exposure checklist
+* Webhook registration and testing template
+* Security risk assessment template
+* NFR matrix with thresholds and monitoring metrics
+
+== Example Blueprint
+
+=== Scenario: Shopify Webhook → On-Prem ERP
+
+* **Purpose**: Update inventory levels on new online orders.
+* **Initiation**: Shopify invokes webhook with order data.
+* **Security**: Public endpoint exposed via reverse proxy with API key + TLS.
+* **Technology Stack**: Azure App Gateway + NGINX → Internal Apache Camel service.
+* **Monitoring**: Audit logs streamed to SIEM; alerts on failed deliveries.
+
+== Related Domains
+
+* See: xref:domains/on-premise-to-cloud.adoc[On-Premise To Cloud] for outbound flows.
+* See: integration-protocols.adoc for security patterns and DMZ design.
