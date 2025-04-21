@@ -1,6 +1,6 @@
 site:
   title: Integration Development Method
-  start_page: idm::index.adoc
+  start_page: idm::introduction.adoc
 
 content:
   sources:

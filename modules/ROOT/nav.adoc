@@ -1,4 +1,4 @@
-* xref:index.adoc[Introduction]
+* xref:introduction.adoc[Introduction]
 * xref:integration-domains.adoc[Integration Domains]
 ** xref:domains/cloud-to-cloud.adoc[Cloud To Cloud]
 ** xref:domains/cloud-to-on-premise.adoc[Cloud To On-Premise]

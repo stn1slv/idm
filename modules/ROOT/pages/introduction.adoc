@@ -11,24 +11,17 @@ Inspired by SAP’s ISA-M, IDM significantly expands and refines the approach by
 IDM aims to:
 
 * Deliver a structured and prescriptive method for integration development
-
 * Support enterprise-grade use cases across cloud, on-premises, and hybrid landscapes
-
 * Enable alignment with TOGAF’s Architecture Development Method (ADM)
-
 * Provide actionable templates, examples, and checklists to accelerate delivery
-
 * Promote governance, consistency, and security in integration architecture
 
 == Target Audience
 IDM is intended for:
 
 * Integration and Solution Architects
-
 * Enterprise Architects
-
 * Integration Developers and Platform Engineers
-
 * Architecture Governance and COE teams
 
 == Alignment with TOGAF
@@ -47,35 +40,32 @@ IDM complements TOGAF by providing concrete integration guidance within the ADM 
 == Method Blocks
 IDM consists of eight core building blocks:
 
-image:overview.svg[]
+image:introduction.svg[]
 
-. Integration Domains – Classify the hosting context (on-premises, cloud, B2B/B2G)
-. Integration Styles & Use Cases – Identify the nature and type of integration
-. Integration Principles – Define key architectural guidelines
-. Integration Technology Mapping – Map integration styles to capabilities and tools
-. Integration Blueprint – Create prescriptive architecture templates and solution diagrams
-. Technology Blueprint – Detail technology-specific integration components and patterns
-. Integration Protocols, Data Formats & API Specifications – Define interface and communication standards
-. Data Security – Address integration-specific security, compliance, and access concerns
+* Integration Domains – Classify the hosting context (on-premises, cloud, B2B/B2G)
+* Integration Styles & Use Cases – Identify the nature and type of integration
+* Integration Principles – Define key architectural guidelines
+* Integration Technology Mapping – Map integration styles to capabilities and tools
+* Integration Blueprint – Create prescriptive architecture templates and solution diagrams
+* Technology Blueprint – Detail technology-specific integration components and patterns
+* Integration Protocols, Data Formats & API Specifications – Define interface and communication standards
+* Data Security – Address integration-specific security, compliance, and access concerns
 
 == Delivery Format
 IDM is delivered as a modular, wiki-based framework (e.g., Confluence or Antora), supported by:
 
 * Page templates and documentation guidelines
-
 * Visual diagrams and reference architectures
-
 * Checklists and design reviews
-
 * Pattern libraries and example use cases
 
 == Getting Started
 Begin by:
 
-. Identifying applicable Integration Domains in your landscape
-. Classifying integration scenarios using Integration Styles & Use Cases
-. Applying relevant Integration Principles and selecting suitable patterns
-. Referencing the Integration Blueprint and tailoring solution designs
-. Embedding governance and security considerations from the outset
+* Identifying applicable Integration Domains in your landscape
+* Classifying integration scenarios using Integration Styles & Use Cases
+* Applying relevant Integration Principles and selecting suitable patterns
+* Referencing the Integration Blueprint and tailoring solution designs
+* Embedding governance and security considerations from the outset
 
 For further guidance, explore the detailed blocks in the documentation tree.

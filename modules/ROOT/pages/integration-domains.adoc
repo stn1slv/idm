@@ -2,8 +2,6 @@
 :page=toc: right
 :page-toclevels: 3
 
-image::integration-domains.svg[]
-
 == Introduction
 
 Integration domains define the deployment and connectivity context in which enterprise integration takes place. The IDM framework categorizes integration domains based on hosting location and directionality of data flow. This abstraction helps architects assess network boundaries, security models, and technology constraints.
@@ -14,6 +12,8 @@ The four defined integration domains are:
 * Cloud to On-Premise
 * On-Premise to Cloud
 * On-Premise to On-Premise
+
+image::integration-domains.svg[]
 
 == 1. Cloud to Cloud
 
