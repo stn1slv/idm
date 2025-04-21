@@ -5,4 +5,4 @@
 
 This guide provides an overview of the Integration Development Method (IDM) and how to use it to create and manage your integration projects.
 
-TODO: IMAGE OF WHOLE PROCESS - DOMAIN->STYLES->USE CASES->INTEGRATION BLUEPRINTS
+image:overview.svg[]
