@@ -1,8 +1,81 @@
 = Introduction to Integration Development Method
-:showtitle:
-:page-title: Introduction to Integration Development Method
-:page-description: A guide to get you started with your Antora site using AsciiDoc
+:page=toc: right
+:page-toclevels: 3
 
-This guide provides an overview of the Integration Development Method (IDM) and how to use it to create and manage your integration projects.
+== Purpose
+The Integration Development Method (IDM) provides integration professionals, solution architects, and enterprise teams with a hands-on, technology-neutral framework for designing, implementing, and governing integration solutions across complex enterprise landscapes.
+
+Inspired by SAP’s ISA-M, IDM significantly expands and refines the approach by focusing on modern integration demands — including cloud-native, hybrid, and B2B/B2G use cases — and aligning with TOGAF principles for enterprise architecture.
+
+== Vision and Goals
+IDM aims to:
+
+* Deliver a structured and prescriptive method for integration development
+
+* Support enterprise-grade use cases across cloud, on-premises, and hybrid landscapes
+
+* Enable alignment with TOGAF’s Architecture Development Method (ADM)
+
+* Provide actionable templates, examples, and checklists to accelerate delivery
+
+* Promote governance, consistency, and security in integration architecture
+
+== Target Audience
+IDM is intended for:
+
+* Integration and Solution Architects
+
+* Enterprise Architects
+
+* Integration Developers and Platform Engineers
+
+* Architecture Governance and COE teams
+
+== Alignment with TOGAF
+IDM complements TOGAF by providing concrete integration guidance within the ADM cycle:
+
+[cols="2,5", options="header"]
+|===
+| TOGAF ADM Phase | IDM Contribution
+
+| Preliminary / A | Define integration principles and assess integration maturity
+| B / C / D       | Design integration architecture, classify use cases and patterns
+| E / F           | Map integration initiatives into solution plans and roadmaps
+| G / H           | Govern, monitor, and evolve integration implementations
+|===
+
+== Method Blocks
+IDM consists of eight core building blocks:
 
 image:overview.svg[]
+
+. Integration Domains – Classify the hosting context (on-premises, cloud, B2B/B2G)
+. Integration Styles & Use Cases – Identify the nature and type of integration
+. Integration Principles – Define key architectural guidelines
+. Integration Technology Mapping – Map integration styles to capabilities and tools
+. Integration Blueprint – Create prescriptive architecture templates and solution diagrams
+. Technology Blueprint – Detail technology-agnostic infrastructure components
+. Integration Protocols, Data Formats & API Specifications – Define interface and communication standards
+. Data Security – Address integration-specific security, compliance, and access concerns
+
+== Delivery Format
+IDM is delivered as a modular, wiki-based framework (e.g., Confluence or Antora), supported by:
+
+* Page templates and documentation guidelines
+
+* Visual diagrams and reference architectures
+
+* Checklists and design reviews
+
+* Pattern libraries and example use cases
+
+== Getting Started
+Begin by:
+
+. Identifying applicable Integration Domains in your landscape
+. Classifying integration scenarios using Integration Styles & Use Cases
+. Applying relevant Integration Principles and selecting suitable patterns
+. Referencing the Integration Blueprint and tailoring solution designs
+. Embedding governance and security considerations from the outset
+
+For further guidance, explore the detailed blocks in the documentation tree.
