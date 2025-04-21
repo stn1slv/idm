@@ -4,88 +4,127 @@
 
 image::integration-domains.svg[]
 
-== On-Premise
+== Introduction
 
-=== Definition & Hosting
-* Systems or applications hosted within your enterprise’s **own facilities** (data centers or colocation).
-* You manage the physical hardware, virtualization layers, network, and OS stack (whether fully bare metal or running a “private cloud” environment).
-* Typically provides maximum ownership and control of infrastructure.
+Integration domains define the deployment and connectivity context in which enterprise integration takes place. The IDM framework categorizes integration domains based on hosting location and directionality of data flow. This abstraction helps architects assess network boundaries, security models, and technology constraints.
 
-=== Networking & Security
-* Operates on **internal LAN/WAN**, possibly using DMZ for external access.
-* You handle perimeter security, OS patching, identity/access management, and compliance baselines.
-* May use virtualization or container orchestration in a “private cloud” style (for elasticity and self-service), but remains dedicated to your organization.
+The four defined integration domains are:
 
-=== Common Use Cases
-* **Legacy** or specialized systems requiring direct hardware or older protocols.
-* **Modern/Private Cloud** with advanced orchestration but fully under your governance and network domain.
-* Internal, high-volume data flows with minimal latency concerns, behind corporate firewalls.
+* Cloud to Cloud
+* Cloud to On-Premise
+* On-Premise to Cloud
+* On-Premise to On-Premise
 
-=== Key Points
-* Physical location, hardware, and virtualization are under **your** full control.
-* Easier to ensure data sovereignty if everything remains on your own premises or private hosting.
-* Security model is mostly closed to the outside world unless specifically opened (via DMZ, VPN, etc.).
+== 1. Cloud to Cloud
 
-== Cloud
+=== Description
 
-This domain covers **all externally hosted** environments not fully owned or operated by you. It often breaks down further into Software-as-a-Service (SaaS), Infrastructure/Platform-as-a-Service (IaaS/PaaS), and external partner/government solutions (B2B/B2G).
+Integration between two systems both hosted in cloud environments. Examples include SaaS-to-SaaS, or PaaS services integrating via APIs or events.
 
-=== SaaS (Software-as-a-Service)
+=== Characteristics
 
-==== Definition & Hosting
-* Vendor-managed applications (CRM, HR, finance, etc.) consumed via subscription.
-* No direct control over underlying OS or infrastructure; you configure and use published APIs.
+* Systems reside in public cloud platforms (e.g., AWS, Azure, Salesforce, Workday).
 
-==== Networking & Security
-* Primarily over the public internet (HTTPS), possibly with optional VPN tunnels or direct connects.
-* Shared responsibility model: the provider secures infrastructure and performs updates; you manage application data usage, user security, and integrations.
+* Commonly connected via REST APIs, GraphQL, or event brokers.
 
-==== Common Use Cases
-* Rapid deployment of standardized business solutions without heavy operational overhead.
-* Integrations with third-party or partner SaaS for real-time collaboration (orders, invoices, marketing campaigns, etc.).
+* Typically exposed over HTTPS, secured with OAuth 2.0 or mTLS.
 
-=== IaaS/PaaS (Infrastructure/Platform-as-a-Service)
+=== Key Considerations
 
-==== Definition & Hosting
-* You rent virtual machines, containers, or application runtimes from a public cloud provider (e.g., AWS, Azure, GCP).
-* **IaaS**: You manage your OS, patches, and app stack on the provider’s compute/storage/network.  
-* **PaaS**: You only manage code/data; the provider handles OS and middleware updates.
+* Latency: Typically lower due to hyperscaler infrastructure.
+* Security: Managed via provider IAM, tokens, rate limiting.
+* Observability: Cloud-native logging and tracing platforms can be used.
 
-==== Networking & Security
-* Typically use Virtual Private Clouds (VPCs) or subnets with controlled ingress/egress.
-* Shared responsibility: provider secures physical hardware, hypervisors; you secure your OS (IaaS) or application config (PaaS).
-* Often integrated with on-prem networks via VPN or direct connect lines for hybrid scenarios.
+=== Use Cases
 
-==== Common Use Cases
-* Custom microservices, event-driven apps, or serverless functions that need global scalability.
-* Containerized or ephemeral workloads with flexible resource usage.
-* Running third-party software in a public cloud environment while retaining partial OS-level control (IaaS).
+* Integrating HR (Workday) with Identity Providers (Okta).
+* Retail platforms syncing product data between Shopify and ERP cloud APIs.
 
-=== B2B / B2G (External Partner, Government)
+== 2. Cloud to On-Premise
 
-==== Definition & Hosting
-* Systems or portals not operated by you, such as business partners, suppliers, customers, or government agencies.
-* From your perspective, these endpoints are “external cloud” (if only accessible over the public internet or specialized secure channels).
+=== Description
 
-==== Networking & Security
-* Often stricter or specialized protocols (EDI X12, EDIFACT, RosettaNet) or mandatory encryption standards.
-* Could include e-invoicing or e-tax submission to a government SaaS portal, or supply chain collaboration with a partner’s on-prem or cloud environment.
-* You generally rely on **secure internet endpoints**, partner-defined authentication (certificates, tokens), and standardized message formats.
+An externally hosted system (SaaS, PaaS) connects to an internally hosted system.
 
-==== Common Use Cases
-* **B2B**: Exchanging purchase orders, invoices, advanced shipping notices with external companies.
-* **B2G**: Filing digital tax returns, e-invoicing, customs declarations to government portals.
-* Can be merged into “Public Cloud” connections, but many enterprises highlight it separately due to compliance/regulatory overhead.
+=== Characteristics
 
-== Differences at a Glance
+* Requires ingress into the corporate network.
+* Connectivity often enabled via reverse proxy, VPN, or direct interconnect.
 
-[cols="25,25,25", options="header"]
+=== Key Considerations
+
+* Security: Must enforce perimeter controls, IP allowlists, and possibly TLS termination.
+* Network Complexity: Risk of firewall misconfigurations or blocked traffic.
+* Governance: Change control for on-prem components can be slower.
+
+=== Use Cases
+
+* Cloud e-commerce solution pulling stock availability from on-prem inventory system.
+* External partners triggering updates to on-prem ERP.
+
+== 3. On-Premise to Cloud
+
+=== Description
+
+Internal systems initiate communication with cloud-based endpoints.
+
+=== Characteristics
+
+* Easier to enable than inbound traffic (from cloud to internal).
+* Typically routed via proxy/gateway/firewall for egress filtering.
+
+=== Key Considerations
+
+* API Management: May need API key/token management or OAuth client setup.
+* Error Handling: Retries and circuit breakers for network variability.
+* Data Security: Ensure encryption at rest/in transit when transmitting externally.
+
+=== Use Cases
+
+* On-prem ETL tool pushing data into cloud-based analytics platform.
+* Internal applications sending telemetry to cloud observability stacks.
+
+== 4. On-Premise to On-Premise
+
+=== Description
+
+Integration between systems fully contained within the enterprise data center or private cloud.
+
+=== Characteristics
+
+* Entirely under enterprise network perimeter.
+* May involve legacy protocols (FTP, JDBC, SOAP) or newer APIs.
+
+=== Key Considerations
+
+* Latency-sensitive: Often used for core transactional flows.
+* Legacy Support: Adapters or connectors might be required.
+* Governance: Easier to control change and compliance within internal network.
+
+=== Use Cases
+
+* ERP-to-WMS integration in the same facility.
+* Scheduled batch jobs syncing databases between business units.
+
+== Summary Matrix
+
+
+
+[cols="1,1,1,1,1", options="header"]
 |===
-| Aspect                    | On-Premises (including Private Cloud)                      | Cloud (SaaS / IaaS / PaaS / B2B/B2G)
-| Hosting Ownership        | Fully internal or privately dedicated to your org          | Externally managed by a provider, partner, or agency
-| Network & Connectivity   | LAN/WAN behind corporate firewalls; optional DMZs or VPN   | Usually over public internet or dedicated links (VPN, direct connect)
-| Security                 | You handle all security layers, from physical to OS        | Shared responsibility model; rely partly on external provider or partner’s policies
-| Compliance & Data Control| Easiest to enforce local data residency & custom policies  | Must align with provider or partner compliance frameworks, regions, and SLAs
-| Integration Patterns     | Could be legacy, file-based, or private APIs; control is local | Typically API-driven, event-driven; often using published vendor endpoints or EDI  
-| Use Cases                | Legacy ERP, big data in a private data center, container-based private cloud | SaaS solutions (CRM, HR), custom apps in IaaS/PaaS, external B2B trading, or government e-invoicing
+| Integration Domain | Initiator | Target | Typical Security | Common Protocols
+| Cloud to Cloud      | Cloud App | Cloud App | OAuth, mTLS | HTTPS, Webhooks, Events
+| Cloud to On-Premise | Cloud App | Internal System | Reverse proxy, VPN | HTTPS, SFTP, API Gateway
+| On-Premise to Cloud | Internal System | Cloud API | Outbound firewall, OAuth | HTTPS, Kafka, REST
+| On-Premise to On-Premise | Internal System | Internal System | Internal IAM, DMZ | REST, SOAP, File Transfer
+
 |===
+
+
+
+== Guidance for Architects
+
+
+* Classify integrations early using this domain model to influence deployment, tooling, and security.
+* Align domain-specific decisions with integration style (e.g., process vs data vs event-driven).
+* Document integration domains in solution blueprints and governance assessments.
