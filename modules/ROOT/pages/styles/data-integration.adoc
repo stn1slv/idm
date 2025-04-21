@@ -1,32 +1,86 @@
 = Data Integration
-:page=toc: right
-:page-toclevels: 2
+:page-toc: right
+:page-toclevels: 3
 
-== Introduction
-Data Integration focuses on the efficient movement, transformation, and consolidation of data across various systems. It underpins analytics, reporting, and enterprise data consistency.
+== Purpose
+Data Integration (DI) moves, transforms, and consolidates data to deliver **consistent, analytics‑ready information** across the enterprise. It underpins reporting, regulatory compliance, and data‑driven decision making by synchronising operational and analytical stores.
 
-== Specific Characteristics and Requirements
+== Alignment with IDM & TOGAF
+*IDM Block*: *Integration Styles & Use Cases* → *Data Integration*  ⟶ informs *Technology Mapping* and *Data Security*.
 
-=== Data Orchestration
-Coordinates multiple data tasks—extraction, transformation, and loading—to streamline complex data processes.
+*TOGAF*: DI activities align with **ADM Phases C–G** (Data Architecture, Opportunities & Solutions, Migration Planning, Implementation Governance, Change Management).
+
+== When to Use Data Integration
+* Consolidating data for BI/analytics, data lakes, or MDM hubs.
+* Near real‑time replication (CDC) for operational reporting.
+* Batch ETL/ELT jobs for large volumes with transformation logic.
+* Data virtualization or federation to avoid physical copies.
+* Streaming pipelines for high‑velocity IoT or clickstream data.
+
+=== Typical Integration Domains
+[cols="25,75"]
+|===
+|Domain |Example Scenarios
+|On‑Prem ↔ On‑Prem | Nightly ETL from ERP DB to on‑prem EDW
+|On‑Prem ↔ Cloud   | Replicating CRM data to cloud data lake via CDC
+|Cloud ↔ Cloud     | SaaS marketing → SaaS analytics platform ELT
+|B2B Data Exchange | Regulatory reporting feeds to government portal
+|===
+
+== Specific Characteristics & Requirements
+=== Data Orchestration & Pipelines
+Co‑ordinate extract, transform, load / stream processing steps with workflow control, dependency handling, and restartability.
 
 === Complex Transformations
-Converts and enriches raw data to match target formats through aggregation, cleaning, and restructuring.
+Schema mapping, enrichment, aggregations, surrogate keys, reference data lookups.
 
 === Data Quality Management
-Ensures data accuracy and consistency via deduplication, validation, cleansing, and standardization processes.
+Profiling, validation rules, deduplication, anomaly detection. Embed DQ checks early in pipelines.
 
-=== Big Data Processing
-Accommodates high-volume, high-velocity, and high-variety data using distributed systems and NoSQL databases.
+=== High‑Volume & Velocity Processing
+Parallel / distributed compute (Spark, Flink, serverless ELT) for petabyte‑scale data or millions of CDC events per minute.
 
-=== High-Throughput Processing
-Processes large data volumes efficiently using parallel processing and distributed streaming solutions.
+=== API & Middleware Enablement
+Expose governed data services (GraphQL, REST) and leverage change‑data APIs/webhooks when available.
 
-=== API and Middleware Driven Integration
-Facilitates standardized interactions across heterogeneous data sources through APIs and middleware technologies.
+=== Batch and Real‑Time Modes
+Support hybrid patterns: scheduled bulk loads, micro‑batch, or continuous streaming depending on SLA.
 
-=== Batch and Real-Time Capabilities
-Supports both scheduled, batch-driven ETL operations and near-real-time synchronization (e.g., via CDC).
+== Non‑Functional Considerations
+[horizontal]
+Throughput:: Rows or events per minute/hour; window‑based SLAs.
+Latency:: Batch window length or near‑real‑time lag target (e.g. < 5 min).
+Data Quality:: Thresholds for error rate, completeness, conformance.
+Consistency:: Eventual vs strong; watermarking & exactly‑once semantics in streams.
+Availability:: RPO/RTO for data pipelines; checkpoint/restart strategy.
+Security & Privacy:: Field‑level encryption, masking, PII handling per GDPR/CCPA.
+Observability:: Pipeline lineage, KPIs (rows processed, errors), DataOps alerts.
+
+== Governance & Lifecycle
+. *Source & Target Discovery* – catalog systems, owners, data classifications.
+. *Mapping & Contract Definition* – logical model, transformation specs versioned in Git/Wiki.
+. *Design Review* – integration architect validates pattern choice (ETL, CDC, etc.).
+. *Implementation* – code & config follow reusable pipeline templates and naming standards.
+. *Testing* – unit, regression, volumetric, DQ tests.
+. *Deployment & Schedule Management* – CI/CD + orchestrator (Airflow, native scheduler).
+. *Operate & Monitor* – lineage dashboards, SLA breach alerts, DQ scorecards.
+. *Change & Versioning* – schema evolution policy, backward compatibility, deprecation.
+
+== Design Checklist
+* [ ] Pattern selected (Batch ETL, CDC, Streaming, Virtualization) with rationale.
+* [ ] Source → target mapping documented; DQ rules defined.
+* [ ] NFRs quantified (latency, throughput, DQ thresholds, availability).
+* [ ] Security/privacy controls implemented (encryption, masking).
+* [ ] Error handling & resume strategy designed (checkpointing).
+* [ ] Observability plan: lineage, metrics, alerts.
+* [ ] Governance artefacts stored in Integration Catalog; owners assigned.
+
+== Related Use‑Case Blueprints
+* xref:use-cases/etl-integration.adoc[ETL Integration]
+* xref:use-cases/cdc-replication.adoc[CDC Replication]
+* xref:use-cases/data-virtualization.adoc[Data Virtualization]
+* xref:use-cases/streaming-integration.adoc[Streaming Integration]
 
 == Conclusion
-Data Integration is critical for transforming and consolidating data into actionable insights. It supports both traditional batch processing and modern continuous data flows.
+Data Integration delivers trusted, timely data where it is needed. By applying IDM’s structured governance, NFR focus, and reusable design templates, enterprises achieve scalable, secure, and high‑quality data pipelines that power analytics and digital operations.
+

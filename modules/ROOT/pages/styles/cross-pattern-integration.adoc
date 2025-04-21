@@ -1,48 +1,89 @@
-= Cross-Pattern Integration
-:page=toc: right
-:page-toclevels: 2
+= Cross‑Pattern Integration
+:page-toc: right
+:page-toclevels: 3
+:icons: font
 
-== Introduction
-Cross-Pattern Integration encompasses techniques that span both Process and Data Integration, enabling versatile solutions for complex scenarios. This style supports real-time orchestration, continuous data flows, and additional capabilities such as API management, event-driven communication, RPA, and IoT integration.
+== Purpose
+Cross‑Pattern Integration (CPI) unifies **process‑centric and data‑centric techniques** to solve complex, multi‑modal integration scenarios. It supports real‑time orchestration, continuous data flows, API exposure, event streaming, RPA, IoT, and legacy file transfer within a single cohesive approach.
 
-== Specific Characteristics and Requirements
+== Alignment with IDM & TOGAF
+*IDM Block*: *Integration Styles & Use Cases* → *Cross‑Pattern Integration*  ⟶ bridges *Integration Principles*, *Technology Mapping*, and *Blueprints*.
 
+*TOGAF*: CPI designs often span **ADM Phases B–D** (Business, Application, Data, Technology) and require strong governance in Phases F–G because they cut across multiple architecture layers.
+
+== When to Use Cross‑Pattern Integration
+* A single initiative requires **both transactional orchestration and bulk/stream data movement** (e.g., order fulfillment that triggers analytics in real time).
+* You must expose APIs while simultaneously emitting events and persisting data to a lake.
+* Integrations involve **heterogeneous interaction modes** (APIs, events, files, RPA bots, device telemetry).
+* Need for agility: ability to switch or combine patterns quickly as requirements evolve.
+
+=== Typical Integration Domains
+[cols="25,75"]
+|===
+|Domain |Example Scenarios
+|Hybrid Cloud | e‑commerce checkout (real‑time API) + analytics stream to cloud data platform
+|B2B / Partner | Supplier API calls + nightly EDI file + event notifications
+|IoT & Edge    | Device telemetry (stream) + command/response API + batch firmware logs upload
+|Legacy Modernisation | RPA screen scrape feeding API gateway and data pipeline
+|===
+
+== Core Capabilities & Patterns
 === Hybrid Integration Approach
-Leverages both process-centric and data-centric methods to design comprehensive solutions for transactions and analytics.
+Blend process orchestration (BPM, ESB) with data pipelines (ETL/streaming) under common governance.
 
 === API Management
-Exposes business functionalities via secure APIs with:
+Expose and secure business capabilities; manage versioning and developer onboarding.
 
-* End-to-end lifecycle management.
-* Enforcement of security policies and usage monitoring.
-* Standardized interfaces for broad interoperability.
-
-=== Event-Driven Architecture
-Uses events to trigger system interactions through:
-
-* A publish/subscribe model.
-* Messaging infrastructures (e.g., brokers or streaming platforms).
-* Support for loose coupling and scalability.
-
-=== File-Based Integration
-Facilitates secure batch-oriented data exchanges using standardized file formats (CSV, XML, JSON) and protocols (FTP, SFTP, MFT).
+=== Event‑Driven Architecture (EDA)
+Publish/subscribe or event streaming for asynchronous propagation and decoupling.
 
 === Streaming Data Processing
-Manages continuous data flows with:
+Low‑latency, high‑throughput pipelines using distributed streaming frameworks.
 
-* High throughput and low latency.
-* Distributed processing frameworks.
-* On-the-fly data transformation and aggregation.
+=== File‑Based Integration
+Batch file exchange when systems cannot support API/event methods (often part of initial migration).
 
-=== IoT Integration
-Connects devices and sensors to enterprise systems by:
+=== Robotic Process Automation (RPA)
+Automated UI interactions to bridge gaps until APIs or proper connectors are available.
 
-* Ingesting real-time sensor data.
-* Employing edge-to-cloud processing for low latency.
-* Ensuring device security and centralized management.
+=== IoT Connectivity
+Edge‑to‑cloud ingestion, device management, and command patterns.
 
-=== Real-Time and Near-Real-Time Capabilities
-Guarantees that both transactional and analytical data movements occur promptly, supporting dynamic business processes.
+== Non‑Functional Considerations
+[horizontal]
+Latency:: Varies per sub‑pattern; document per interaction (API ≤ 2 s, event ≤ 1 s, file 1×/day etc.).
+Throughput:: Aggregate across modes; plan broker/file servers for worst peaks.
+Flexibility:: Ability to add/remove consumers without code changes (EDA, API gateway abstraction).
+Security:: Unified authZ/authN (OAuth, mutual TLS, VPN) across APIs, events, files.
+Observability:: Correlate transactions spanning modes (trace‑id propagated across REST, Kafka, batch job IDs).
+Cost Optimisation:: Evaluate TCO when combining real‑time and batch (broker retention, storage, RPA licences).
+
+== Governance & Lifecycle
+. *Pattern Decomposition* – identify sub‑patterns (API, EDA, Batch) per business requirement.
+. *Capability Alignment* – map each sub‑pattern to HIP capabilities (API gateway, event broker, ETL engine).
+. *Design Authority Review* – ensure combined solution meets global NFRs and security.
+. *Implementation* – reuse common integration libraries; avoid duplicate mapping logic.
+. *Testing* – integrated test plan covering API tests, event replay, batch reconciliation.
+. *Deployment* – orchestrate multi‑component release (CI/CD pipelines with dependency ordering).
+. *Operate & Monitor* – central dashboard aggregating API metrics, broker lag, file transfer status, RPA bot health.
+. *Evolve* – retire legacy mode (e.g., file) when modern pattern (API/event) is fully adopted.
+
+== Design Checklist
+* [ ] Sub‑patterns identified and documented.
+* [ ] Data contracts (API spec, event schema, file layout) versioned.
+* [ ] Unified security model across all interaction modes.
+* [ ] End‑to‑end traceability (shared correlation IDs / lineage mappings).
+* [ ] NFRs consolidated; conflict resolution documented (e.g., performance vs cost).
+* [ ] Governance artefacts stored with clear ownership per sub‑pattern.
+
+== Related Use‑Case Blueprints
+* xref:use-cases/api-managed-integration.adoc[API‑Managed Integration]
+* xref:use-cases/event-based-integration.adoc[Event‑Based Integration]
+* xref:use-cases/streaming-integration.adoc[Streaming Integration]
+* xref:use-cases/file-based-integration.adoc[File‑Based Integration]
+* xref:use-cases/rpa.adoc[Robotic Process Automation]
+* xref:use-cases/iot-integration.adoc[IoT Integration]
 
 == Conclusion
-Cross-Pattern Integration offers flexible, robust frameworks to address integration challenges that span multiple domains. It is essential for modern enterprises seeking agility and responsiveness across diverse integration scenarios.
+Cross‑Pattern Integration delivers the **versatility and agility** required for digital business initiatives that cannot be met by a single style alone. By systematically decomposing needs, applying the right sub‑patterns, and governing them under IDM, enterprises can create cohesive, future‑proof integration solutions.
+

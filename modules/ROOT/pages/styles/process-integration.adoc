@@ -1,32 +1,90 @@
 = Process Integration
-:page=toc: right
-:page-toclevels: 2
+:page-toc: right
+:page-toclevels: 3
 
-== Introduction
-Process Integration focuses on real-time, message-based interactions that orchestrate complex business processes. It ensures transactional integrity and rapid data exchanges across connected systems.
+== Purpose
+Process Integration (PI) provides _real‑time, message‑based orchestration_ of business transactions across heterogeneous applications. It ensures **transactional integrity**, reliable communication, and governed interaction patterns wherever immediate system‑to‑system coordination is required.
 
-== Specific Characteristics and Requirements
+== Alignment with IDM & TOGAF
+*IDM Block*: *Integration Styles & Use Cases* → *Process Integration*  ⟶ drives *Integration Technology Mapping* and *Blueprints*.
 
+*TOGAF*: PI design and governance activities map primarily to **ADM Phases B–G** – from defining Application & Data Architecture through Implementation Governance and Change Management.
+
+== When to Use Process Integration
+* End‑to‑end business transactions that must complete (or fail) atomically across systems.
+* Scenarios demanding < few‑second latency (order capture, inventory reservation, payment authorization).
+* Complex orchestration involving conditional routing, compensations, or sagas.
+* Real‑time B2B/B2G exchanges where partners require synchronous acknowledgements (e‑invoicing, customs filings).
+
+=== Typical Integration Domains
+[cols="25,75"]
+|===
+|Domain |Example Scenarios
+|Internal A2A | CRM → ERP sales order booking, HR → Payroll updates
+|Hybrid Cloud | On‑prem ERP ↔ SaaS HR via real‑time APIs
+|B2B / B2G   | EDI purchase order submission to supplier, PEPPOL e‑invoice
+|===
+
+== Specific Characteristics & Requirements
 === Transactional Integrity
-Guarantees that business transactions execute fully or not at all through atomic operations and robust error handling.
+Ensure *ACID* or *business‑centric saga* guarantees with retry / compensation workflows.
 
 === Reliable Messaging
-Ensures messages are delivered once and in order by using persistent queues, acknowledgments, and error tracking.
+* Exactly‑once or at‑least‑once delivery with persistence.
+* Dead‑letter / error queues for poison messages.
 
 === Message Orchestration
-Coordinates multi-system interactions by sequencing tasks, managing conditional logic, and handling exceptions.
+* BPMN / workflow engines or lightweight orchestrators.
+* Correlation IDs for distributed tracing.
+
+=== API‑Centric Communication
+* Synchronous (REST/GraphQL/gRPC) for immediate request‑reply.
+* Asynchronous (event or command) APIs for loose coupling.
 
 === B2B Protocol Support
-Supports standard protocols (EDI, XML, RESTful web services) for secure external system communication.
+EDI (X12, EDIFACT), AS2/AS4, ebMS 3.0, XML/JSON over HTTPS.
 
-=== API-Centric Communication
-Utilizes both synchronous and asynchronous APIs to enable standardized and scalable connectivity.
+=== Pre‑Packaged Connectors
+Vendor‑neutral adapters accelerate connectivity to common ERPs, CRMs, COTS packages.
 
-=== Real-Time Processing
-Maintains immediate data exchange to ensure that all systems are kept up to date for dynamic operations.
+=== Real‑Time Processing
+Latency budgets documented as part of NFRs (see below).
 
-=== Pre-Packaged Integration Content
-Often includes adapters, connectors, and mapping templates to accelerate implementation for common enterprise applications.
+== Non‑Functional Considerations
+[horizontal]
+Latency:: Target end‑to‑end response (e.g. ≤ 2 s 95th percentile).
+Throughput:: Messages per second or TPS, peak vs steady‑state.
+Availability:: Uptime objective (e.g. 99.9 %), active‑active or DR requirements.
+Consistency:: Exactly‑once vs at‑least‑once, eventual vs strong.
+Security & Compliance:: Transport encryption, payload protection, GDPR/PCI scope.
+Observability:: Structured logging, metrics (success/failure counts, SLA breaches), distributed tracing.
+
+== Governance & Lifecycle
+. *Design Review* – classify style/domain, select pattern, define NFRs.
+. *Contract Definition* – canonical message or API spec stored in Integration Catalog.
+. *Implementation* – follow IDM coding guidelines (error handling, retries).
+. *Testing* – functional + NFR testing (latency, load, resiliency).
+. *Deployment Approval* – integration architect sign‑off; security review for external flows.
+. *Operate & Monitor* – dashboards, alert rules; periodic SLA assessment.
+. *Change & Versioning* – semantic versioning for messages/APIs; deprecation policy with sunset timelines.
+
+== Design Checklist
+* [ ] Integration domain identified and documented.
+* [ ] Pattern (e.g. request/reply, async pub/sub, saga) selected and justified.
+* [ ] End‑to‑end transaction or compensation strategy defined.
+* [ ] NFRs quantified (latency, throughput, availability, RPO/RTO).
+* [ ] Security measures (authN/Z, encryption, key management) designed.
+* [ ] Error handling and retries defined; dead‑letter strategy in place.
+* [ ] Observability plan: logs, metrics, traces with correlation IDs.
+* [ ] Governance gates scheduled (design review, deployment approval).
+* [ ] Documentation stored in Integration Catalog with ownership assigned.
+
+== Related Use‑Case Blueprints
+* xref:use-cases/a2a-integration.adoc[A2A Integration]
+* xref:use-cases/b2b-integration.adoc[B2B Integration]
+* xref:use-cases/workflow-automation.adoc[Workflow Automation]
+* xref:use-cases/api-managed-integration.adoc[API‑Managed Integration]
 
 == Conclusion
-Process Integration is a cornerstone for modern enterprise architecture, delivering reliable, real-time connectivity that drives efficient business operations.
+Process Integration is the backbone for **immediate, consistent, and reliable** business transactions across enterprise and partner landscapes. By following the NFR, governance, and checklist guidance above, architects and teams can design solutions that meet stringent business demands while staying aligned with IDM and enterprise‑architecture principles.
+
